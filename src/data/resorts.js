@@ -25,5 +25,4 @@ export const resorts = [
     bunnySlope: true,
     www: 'https://jurasowka.pl/',
   },
-
 ]
