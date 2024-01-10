@@ -1,11 +1,11 @@
-import { MainTemplate } from "./MainTemplate";
+import { MainTemplate } from "../components/templates/MainTemplate/MainTemplate";
 
 const Root = () => {
   return (
     <>
-      <MainTemplate/>
+      <MainTemplate />
     </>
   );
-}
+};
 
 export default Root;
