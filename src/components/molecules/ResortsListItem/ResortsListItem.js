@@ -1,7 +1,9 @@
 import { ResortDifficultyBar } from "components/atoms/ResortDifficultyBar/ResortDifficultyBar";
 import { Wrapper } from "./ResortsListItem.styles";
-import { ResortIcon } from "components/atoms/ResortIcon/ResortIcon";
+import {  ResortIcon } from "components/atoms/ResortIcon/ResortIcon";
+import { Button } from "components/atoms/Button/Button";
 import { getMaxTrailDifficulty } from "helpers";
+import { ReactComponent as DeleteIcon } from "assets/icons/delete-icon.svg";
 import PropTypes from 'prop-types';
 
 export const ResortsListItem = ({ resort: { name, place, liftCount, trailRatings = [], www } }) => {
@@ -15,14 +17,14 @@ export const ResortsListItem = ({ resort: { name, place, liftCount, trailRatings
         <p>{place}</p>
         <a href={www}>{www}</a>
       </div>
-      <button>X</button>
+      <Button isRound><DeleteIcon /></Button>
     </Wrapper>
   )
 }
 
 ResortsListItem.propTypes = {
   resort: PropTypes.shape({
-    name: PropTypes.string,
+    name: PropTypes.string.isRequired,
     place: PropTypes.string, 
     liftCount: PropTypes.number, 
     trailRatings: PropTypes.arrayOf(PropTypes.string), 

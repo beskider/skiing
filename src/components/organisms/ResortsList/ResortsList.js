@@ -1,7 +1,7 @@
 import { resorts } from "data/resorts";
 import { Button } from "components/atoms/Button/Button";
 import { Wrapper, StyledList } from "./ResortsList.styles";
-import { Title } from "components/Title/Title";
+import { Title } from "components/atoms/Title/Title";
 import { ResortsListItem } from "components/molecules/ResortsListItem/ResortsListItem";
 
 export const ResortsList = () => {
@@ -17,7 +17,7 @@ export const ResortsList = () => {
             />
         ))}
       </StyledList>
-      <Button/>
+      <Button>Add</Button>
     </Wrapper>
   );
 };
