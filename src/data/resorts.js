@@ -8,9 +8,9 @@ export const resorts = [
     long: 21.934,  
     liftCount: 3,
     liftTypes: [ 'chairs', 'button' ],
-    trailRatings: [ 'green', 'blue', 'red', 'black' ],
+    trailRatings: [ 'green', 'blue', 'red', 'black' ],    
     bunnySlope: true,    
-    www: 'https://www.kiczeraski.pl/',
+    www: 'https://www.kiczeraski.pl',
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ export const resorts = [
     liftTypes: [ 'chairs', 'button' ],
     trailRatings: [ 'green', 'blue', 'red' ],
     bunnySlope: true,
-    www: 'https://jurasowka.pl/',
+    www: 'https://jurasowka.pl',
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ export const resorts = [
     liftTypes: [ 'chairs', 'button' ],
     trailRatings: [ 'red' ],
     bunnySlope: true,
-    www: 'https://zima.sportarenamyslenice.pl/',
+    www: 'https://zima.sportarenamyslenice.pl',
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ export const resorts = [
     liftTypes: [ 'chairs', 'button' ],
     trailRatings: [ 'green', 'blue', 'red', 'black' ],
     bunnySlope: true,    
-    www: 'https://www.kasinaski.pl/',
+    www: 'https://www.kasinaski.pl',
   },
   {
     id: 5,
@@ -62,6 +62,6 @@ export const resorts = [
     liftTypes: [ 'chairs', 'button' ],
     trailRatings: [ 'green', 'blue', 'red', 'black' ],
     bunnySlope: true,    
-    www: 'https://www.slotwinyarena.pl/',
+    www: 'https://www.slotwinyarena.pl',
   },
 ]

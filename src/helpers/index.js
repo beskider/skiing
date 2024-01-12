@@ -14,3 +14,5 @@ export const getMaxTrailDifficulty = ( trails ) => {
   else if (trails.includes('green')) return 'green'
   return null;
 };
+
+export const removeHttp = url => url.replace(/^https?:\/\//, '');

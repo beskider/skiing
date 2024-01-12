@@ -6,22 +6,22 @@ export const ResortIcon = styled.div`
   border-radius: 50%;
   color: white;
   font-weight: bold;
-  font-size: 24px;
+  font-size: ${({ theme }) => theme.fontSize.large };
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ value }) => {
+  background-color: ${({ value, theme }) => {
     switch (value) {
       case 'green':
-        return 'green';
+        return theme.trailColor.green;
       case 'blue':
-        return 'blue';
+        return theme.trailColor.blue;
       case 'red':
-        return 'red';
+        return theme.trailColor.red;
       case 'black':
-        return 'black';
+        return theme.trailColor.black;
       default: 
-        return 'gray';
+        return theme.color.grey;  
     }
   }};
-`
+`;
