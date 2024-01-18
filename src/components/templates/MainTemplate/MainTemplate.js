@@ -1,8 +1,9 @@
-import { ResortsList } from "components/organisms/ResortsList/ResortsList";
+import { Navigation } from "components/organisms/Navigation/Navigation"
 import { Wrapper } from "./MainTemplate.styles"
 
 export const MainTemplate = ({ children }) => (
   <Wrapper>
-    <ResortsList />
+    <Navigation/>
+    {children}
   </Wrapper>
 )
