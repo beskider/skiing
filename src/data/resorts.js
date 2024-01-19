@@ -1,6 +1,6 @@
 export const resorts = [
   {
-    id: 1,
+    id: '1',
     name: 'Kiczera Ski',
     country: 'Poland',
     place: 'Puławy',
@@ -13,7 +13,7 @@ export const resorts = [
     www: 'https://www.kiczeraski.pl',
   },
   {
-    id: 2,
+    id: '2',
     name: 'Jurasówka',
     country: 'Poland',
     place: 'Siemiechów',
@@ -26,7 +26,7 @@ export const resorts = [
     www: 'https://jurasowka.pl',
   },
   {
-    id: 3,
+    id: '3',
     name: 'Sport Arena Myślenice',
     country: 'Poland',
     place: 'Myślenice',
@@ -39,7 +39,7 @@ export const resorts = [
     www: 'https://zima.sportarenamyslenice.pl',
   },
   {
-    id: 4,
+    id: '4',
     name: 'Kasina Ski',
     country: 'Poland',
     place: 'Kasina Wielka',
@@ -52,7 +52,7 @@ export const resorts = [
     www: 'https://www.kasinaski.pl',
   },
   {
-    id: 5,
+    id: '5',
     name: 'Słotwiny Arena',
     country: 'Poland',
     place: 'Krynica-Zdrój',
