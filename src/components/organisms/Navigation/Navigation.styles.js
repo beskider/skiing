@@ -16,4 +16,24 @@ export const StyledNavLink = styled(NavLink)`
   font-weight: bold;
   margin: 0 20px;
   text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  &::after {
+    content: '';
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    width: 20px;
+    height: 4px;
+    background-color: ${({ theme }) => theme.color.white};
+    margin-top: 4px;
+  }  
+  &.active {
+    &::after {
+      opacity: 1;
+    }
+  }
 `;
+
+
+
+

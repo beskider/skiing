@@ -61,7 +61,7 @@ export const AddResort = () => {
   
   return (
     <FormWrapper as="form" onSubmit={handleAddResort}>
-      <Title>Add new ski resort</Title>
+      <Title>New ski resort</Title>
       <FormFieldInput
         id="name"
         label="Name"
