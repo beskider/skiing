@@ -1,4 +1,5 @@
 import { StyledButton } from "./Button.styles";
+import PropTypes from 'prop-types';
 
 export const Button = (props) => {
   
@@ -12,6 +13,13 @@ export const Button = (props) => {
       {children}
     </StyledButton>
   )  
-}
+};
 
+Button.propTypes = {
+  isRound: PropTypes.bool,
+  children: PropTypes.oneOfType([ 
+    PropTypes.arrayOf(PropTypes.node), 
+    PropTypes.node
+  ]),
+};
 

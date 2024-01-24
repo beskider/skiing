@@ -1,4 +1,5 @@
 import { StyledSelectForm } from "./SelectForm.styles";
+import PropTypes from 'prop-types';
 
 export const SelectForm = ({ id, name, multiple, options, value, onChange }) => {
   return (
@@ -12,4 +13,13 @@ export const SelectForm = ({ id, name, multiple, options, value, onChange }) => 
       { options.map( option => <option value={option}>{option}</option>) }
     </StyledSelectForm>
   )
-}
+};
+
+SelectForm.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  multiple: PropTypes.bool,
+  options: PropTypes.array,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+};

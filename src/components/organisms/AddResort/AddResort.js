@@ -149,4 +149,4 @@ export const AddResort = () => {
       <Button type="submit">Add</Button>
     </FormWrapper>
   )
-}
+};

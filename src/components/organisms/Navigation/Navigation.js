@@ -7,5 +7,4 @@ export const Navigation = () => {
       <StyledNavLink to="/add-resort">Add resort</StyledNavLink>
     </Wrapper>
   )
-}
-
+};

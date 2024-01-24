@@ -1,5 +1,7 @@
+import PropTypes from 'prop-types';
 import { sortTrailsFromHardest } from "helpers"
 import { BarSegment, Wrapper } from "./ResortDifficultyBar.styles"
+import { TRAIL_RATINGS } from "types/resort";
 
 export const ResortDifficultyBar = ({ trailRatings }) => {
   
@@ -12,5 +14,8 @@ export const ResortDifficultyBar = ({ trailRatings }) => {
       )) }
     </Wrapper>
   )
-}
+};
 
+ResortDifficultyBar.propTypes = {
+  trailRatings: PropTypes.arrayOf(TRAIL_RATINGS)
+};
