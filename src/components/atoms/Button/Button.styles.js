@@ -14,8 +14,7 @@ export const StyledButton = styled.button`
   font-size: ${({ theme }) => theme.fontSize.large };    
   font-weight: bold;
   letter-spacing: 1px;
-  text-transform: uppercase;
-  
+  text-transform: uppercase;  
   svg {
     width: 100%;
     height: 100%;    

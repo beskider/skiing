@@ -13,3 +13,4 @@ export const ResortDifficultyBar = ({ trailRatings }) => {
     </Wrapper>
   )
 }
+

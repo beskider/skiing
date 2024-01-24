@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { useNavigate } from 'react-router-dom'
 
 import { Title } from "components/atoms/Title/Title"
 import { FormWrapper } from "./AddResort.styles"
@@ -8,6 +9,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { Button } from "components/atoms/Button/Button";
 import { FormFieldSelect } from "components/molecules/FormFieldSelect/FormFieldSelect";
 import { LIFT_TYPES, TRAIL_RATINGS } from "types/resort";
+
+import { ResortContext } from "providers/ResortsProvider";
 
 const initialResortFormData = {
   id: '',
@@ -26,7 +29,10 @@ const initialResortFormData = {
 export const AddResort = () => {
 
   const [ formData, setFormData ] = useState(initialResortFormData)
+  const { addResort } = useContext(ResortContext);
   
+  const navigate = useNavigate()
+
   const handleCheckboxChange = e => {
     setFormData({
       ...formData,
@@ -55,8 +61,10 @@ export const AddResort = () => {
   const handleAddResort = e => {
     e.preventDefault();
     formData.id = uuidv4();
-    console.log(formData);
-    setFormData(initialResortFormData)  ;  
+    addResort(formData);
+    setFormData(initialResortFormData);
+    console.log('sssss')
+    navigate('/');
   } 
   
   return (

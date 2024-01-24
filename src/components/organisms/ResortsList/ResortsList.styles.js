@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -12,4 +13,8 @@ export const Wrapper = styled.div`
 export const StyledList = styled.ul`
   list-style: none;
   padding: 0;  
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration:none;
 `;
