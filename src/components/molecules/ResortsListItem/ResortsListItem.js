@@ -23,7 +23,7 @@ export const ResortsListItem = ({ resort: { id, name, place, liftCount, trailRat
           <p>{place}</p>
           <a href={www}>{removeHttp(www)}</a>      
       </StyledItem>
-      <Button isRound onClick={() => deleteResort(id)}><DeleteIcon /></Button>
+      <Button isround onClick={() => deleteResort(id)}><DeleteIcon /></Button>
     </Wrapper>
   )
 }

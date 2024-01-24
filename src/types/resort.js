@@ -20,8 +20,8 @@ export const ResortShape = {
     lat: PropTypes.number,
     long: PropTypes.number,  
     liftCount: PropTypes.number,
-    liftTypes: PropTypes.arrayOf(LIFT_TYPES),
-    trailRatings: PropTypes.arrayOf(TRAIL_RATINGS),    
+    liftTypes: PropTypes.arrayOf(PropTypes.string),
+    trailRatings: PropTypes.arrayOf(PropTypes.string),    
     bunnySlope: PropTypes.bool,    
     www: PropTypes.string,
 };

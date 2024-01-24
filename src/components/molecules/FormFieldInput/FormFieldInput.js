@@ -21,7 +21,11 @@ FormFieldInput.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   onChange: PropTypes.func,
   type: PropTypes.string,
 };

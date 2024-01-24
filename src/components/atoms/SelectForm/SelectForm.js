@@ -10,7 +10,7 @@ export const SelectForm = ({ id, name, multiple, options, value, onChange }) => 
       value={value}
       onChange={onChange}
     >
-      { options.map( option => <option value={option}>{option}</option>) }
+      { options.map( option => <option value={option} key={option}>{option}</option>) }
     </StyledSelectForm>
   )
 };
@@ -20,6 +20,6 @@ SelectForm.propTypes = {
   name: PropTypes.string,
   multiple: PropTypes.bool,
   options: PropTypes.array,
-  value: PropTypes.string,
+  value: PropTypes.array,
   onChange: PropTypes.func,
 };

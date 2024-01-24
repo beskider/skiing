@@ -8,9 +8,8 @@ import { FormFieldInput } from "components/molecules/FormFieldInput/FormFieldInp
 import { v4 as uuidv4 } from 'uuid';
 import { Button } from "components/atoms/Button/Button";
 import { FormFieldSelect } from "components/molecules/FormFieldSelect/FormFieldSelect";
-import { LIFT_TYPES, TRAIL_RATINGS } from "types/resort";
-
 import { ResortContext } from "providers/ResortsProvider";
+import { LIFT_TYPES, TRAIL_RATINGS } from "types/resort";
 
 const initialResortFormData = {
   id: '',

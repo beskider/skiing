@@ -29,7 +29,7 @@ FormFieldSelect.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.array,
   onChange: PropTypes.func,
   options: PropTypes.array,
   multiple: PropTypes.bool,
