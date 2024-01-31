@@ -3,5 +3,5 @@ import styled from "styled-components";
 export const StyledFormField = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-start;    
 `

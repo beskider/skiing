@@ -61,8 +61,7 @@ export const AddResort = () => {
     e.preventDefault();
     formData.id = uuidv4();
     addResort(formData);
-    setFormData(initialResortFormData);
-    console.log('sssss')
+    setFormData(initialResortFormData);    
     navigate('/');
   } 
   
