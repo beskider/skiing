@@ -43,7 +43,7 @@ export const AddResort = () => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
+    })   
   }
 
   const handleSelectChange = e => {    

@@ -24,6 +24,7 @@ export const FormFieldInput = ({
             type="text"
             value={value}
             onChange={onChange}
+            data-testid={name}
           />
         );
       case 'checkbox':
@@ -34,6 +35,7 @@ export const FormFieldInput = ({
             type="checkbox"
             value={value}
             onChange={onChange}
+            data-testid={name}
           />
         );
     }

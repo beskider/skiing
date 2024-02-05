@@ -9,6 +9,7 @@ export const SelectForm = ({ id, name, multiple, options, value, onChange }) => 
       multiple={multiple}
       value={value}
       onChange={onChange}
+      data-testid={name}
     >
       { options.map( option => <StyledOption value={option} key={option}>{option}</StyledOption>) }
     </StyledSelectForm>
