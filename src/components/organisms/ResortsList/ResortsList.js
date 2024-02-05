@@ -29,7 +29,7 @@ export const ResortsList = () => {
           )
       )}
       <StyledLink to="/add-resort">
-        <Button>Add</Button>              
+        <Button>New resort</Button>              
       </StyledLink>
     </Wrapper>
   );

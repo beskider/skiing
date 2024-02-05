@@ -1,7 +1,8 @@
 import { InputForm } from "components/atoms/InputForm/InputForm";
 import { StyledFormField } from "./FormFieldInput.styles";
 import { LabelForm } from "components/atoms/LabelForm/LabelForm";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import { CheckBoxForm } from "components/atoms/CheckBoxForm/CheckBoxForm";
 
 export const FormFieldInput = ({
   id,
@@ -10,12 +11,44 @@ export const FormFieldInput = ({
   value,
   onChange,
   type = "text",
-}) => (
-  <StyledFormField>
-    <LabelForm htmlFor={id}>{label}</LabelForm>
-    <InputForm id={id} name={name} type={type} value={value} onChange={onChange} />
+}) => {
+  
+  const inputElement = (type) => {
+    switch (type) {
+      default:
+      case 'input': 
+        return (
+          <InputForm
+            id={id}
+            name={name}
+            type="text"
+            value={value}
+            onChange={onChange}
+            data-testid={name}
+          />
+        );
+      case 'checkbox':
+        return (
+          <CheckBoxForm
+            id={id}
+            name={name}
+            type="checkbox"
+            value={value}
+            onChange={onChange}
+            data-testid={name}
+          />
+        );
+    }
+  }
+  
+  return (
+    <StyledFormField>
+      <LabelForm htmlFor={id}>{label}</LabelForm>
+      { inputElement(type) }    
   </StyledFormField>
-);
+  )
+}
+  
 
 FormFieldInput.propTypes = {
   id: PropTypes.string,

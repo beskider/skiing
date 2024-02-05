@@ -43,7 +43,7 @@ export const AddResort = () => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
+    })   
   }
 
   const handleSelectChange = e => {    
@@ -61,8 +61,7 @@ export const AddResort = () => {
     e.preventDefault();
     formData.id = uuidv4();
     addResort(formData);
-    setFormData(initialResortFormData);
-    console.log('sssss')
+    setFormData(initialResortFormData);    
     navigate('/');
   } 
   

@@ -1,4 +1,4 @@
-import { StyledSelectForm } from "./SelectForm.styles";
+import { StyledSelectForm, StyledOption } from "./SelectForm.styles";
 import PropTypes from 'prop-types';
 
 export const SelectForm = ({ id, name, multiple, options, value, onChange }) => {
@@ -9,8 +9,9 @@ export const SelectForm = ({ id, name, multiple, options, value, onChange }) => 
       multiple={multiple}
       value={value}
       onChange={onChange}
+      data-testid={name}
     >
-      { options.map( option => <option value={option} key={option}>{option}</option>) }
+      { options.map( option => <StyledOption value={option} key={option}>{option}</StyledOption>) }
     </StyledSelectForm>
   )
 };
