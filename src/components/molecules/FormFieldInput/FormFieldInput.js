@@ -11,33 +11,16 @@ export const FormFieldInput = ({
   value,
   onChange,
   type = "text",
-}) => {
-  
+}) => {  
+
   const inputElement = (type) => {
+    const props = { id, label, name, value, onChange, type }
     switch (type) {
       default:
-      case 'input': 
-        return (
-          <InputForm
-            id={id}
-            name={name}
-            type="text"
-            value={value}
-            onChange={onChange}
-            data-testid={name}
-          />
-        );
+      case 'text': 
+        return <InputForm type="text" {...props} />
       case 'checkbox':
-        return (
-          <CheckBoxForm
-            id={id}
-            name={name}
-            type="checkbox"
-            value={value}
-            onChange={onChange}
-            data-testid={name}
-          />
-        );
+        return <CheckBoxForm type="checkbox" {...props} />
     }
   }
   
@@ -45,10 +28,9 @@ export const FormFieldInput = ({
     <StyledFormField>
       <LabelForm htmlFor={id}>{label}</LabelForm>
       { inputElement(type) }    
-  </StyledFormField>
+    </StyledFormField>
   )
-}
-  
+} 
 
 FormFieldInput.propTypes = {
   id: PropTypes.string,

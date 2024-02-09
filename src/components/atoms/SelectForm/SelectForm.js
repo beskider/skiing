@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 export const SelectForm = ({ id, name, multiple, options, value, onChange }) => {
   return (
     <StyledSelectForm 
-      id={id}
-      name={name}
+      id={id}      
       multiple={multiple}
       value={value}
       onChange={onChange}

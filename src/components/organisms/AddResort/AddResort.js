@@ -47,13 +47,11 @@ export const AddResort = () => {
   }
 
   const handleSelectChange = e => {    
-    const selectedItems = 
-      [...e.target.options]
-        .filter(option => option.selected === true)
-        .map(option => option.value)
+    const options = [ ...e.target.selectedOptions ]
+    const values = options.map(option => option.value)
     setFormData({
       ...formData,
-      [e.target.name]: selectedItems
+      [e.target.id]: values
     })
   }
 

@@ -13,15 +13,17 @@ export const FormFieldSelect = ({
   multiple = false,
 }) => (
   <StyledFormField>
-    <LabelForm htmlFor={id}>{label}</LabelForm>
-    <SelectForm
-      id={id}
-      name={name}
-      multiple={multiple}
-      options={options}
-      value={value}
-      onChange={onChange}
-    />
+    <LabelForm>
+      {label}
+      <SelectForm
+        id={id}
+        name={name}
+        multiple={multiple}
+        options={options}
+        value={value}
+        onChange={onChange}
+      />
+    </LabelForm>
   </StyledFormField>
 );
 
