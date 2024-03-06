@@ -16,7 +16,7 @@ const mockResortsAPI = (timeout) => {
       if (resortsData) {
         resolve([...resortsData]);
       } else {
-        reject({ message: "data load error" });
+        reject({ message: "Data load error" });
       }
     }, timeout);
   }); 
