@@ -9,7 +9,7 @@ describe('AddResort component', () => {
     renderWithProviders(
       <MemoryRouter>
         <AddResort />
-        <ResortsList />
+        <ResortsList /> 
       </MemoryRouter>
     )    
     fireEvent.change(screen.getByTestId('name'), { target: { value: 'Ski Juwel' }});

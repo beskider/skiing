@@ -4,9 +4,10 @@ export const theme = {
     blue: '#034fb3',
     lightBlue: '#5c9ceb',
     grey: '#a7abb7',
+    mediumGrey: '#e7e7e7',
     lightGrey: '#f7f7f7',
     white: '#fefefe',
-    black: '#333333',
+    black: '#4a4a4a',    
   },
   trailColor: {
     green: '#6acb21',

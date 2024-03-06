@@ -7,11 +7,15 @@ export const Wrapper = styled.div`
   padding: 0;  
   display: grid;
   grid-template-rows: 100px 1fr;
-  background-color: ${({ theme }) => theme.color.lightGrey};  
+  grid-template-columns: 1fr 350px;
+  background-color: ${({ theme }) => theme.color.lightGrey};    
+  overflow-y: hidden;
 `;
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div`  
   display: flex;
   align-items: center;
   justify-content: center;
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
 `;

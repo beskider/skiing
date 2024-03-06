@@ -15,4 +15,13 @@ export const getMaxTrailDifficulty = ( trails ) => {
   return null;
 };
 
-export const removeHttp = url => url.replace(/^https?:\/\//, '');
+export const removeHttp = url => url && url.replace(/^https?:\/\//, '') 
+
+export const truncateStringCompleteWords = (str, maxLength) => {
+  let result = str.slice(0, maxLength)
+  const lastSpace = result.lastIndexOf(" ")
+  return  result
+            .slice(0, lastSpace)
+            .replace(/[\.,!?-]$/, "")
+            .concat('...')  
+}

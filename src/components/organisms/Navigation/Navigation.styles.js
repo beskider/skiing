@@ -7,6 +7,8 @@ export const Wrapper = styled.nav`
   flex-direction: row;
   align-items: center;  
   justify-content: center;
+  grid-row: 1 / 2;
+  grid-column: 1 / 3;
 `;
 
 export const StyledNavLink = styled(NavLink)`
