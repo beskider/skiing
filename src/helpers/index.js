@@ -25,3 +25,5 @@ export const truncateStringCompleteWords = (str, maxLength) => {
             .replace(/[\.,!?-]$/, "")
             .concat('...')  
 }
+
+export const sortNewsByLatest = news => news.sort( (a, b) => Date.parse(b.date) - Date.parse(a.date))
