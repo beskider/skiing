@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ResortsList } from "components/organisms/ResortsList/ResortsList";
 import { AddResort } from "components/organisms/AddResort/AddResort";
 import { ResortsProvider } from "providers/ResortsProvider";
+import { NewsProvider } from "providers/NewsProvider";
 
 const Root = () => {
 
@@ -13,14 +14,16 @@ const Root = () => {
     <BrowserRouter>
       <ThemeProvider theme={theme}>
       <GlobalStyle />
-        <MainTemplate>
-          <ResortsProvider>
-            <Routes>
-              <Route path="/" element={<ResortsList/>}/>
-              <Route path="/add-resort" element={<AddResort/>}/>
-            </Routes>
-          </ResortsProvider>
-        </MainTemplate>
+        <ResortsProvider>
+          <NewsProvider>
+            <MainTemplate>
+              <Routes>
+                <Route path="/" element={<ResortsList/>}/>
+                <Route path="/add-resort" element={<AddResort/>}/>
+              </Routes>
+            </MainTemplate>
+          </NewsProvider>
+        </ResortsProvider>
       </ThemeProvider>
     </BrowserRouter>
   );

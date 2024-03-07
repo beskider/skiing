@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   padding: 0;  
   display: grid;
   grid-template-rows: 100px 1fr;
-  grid-template-columns: 1fr 350px;
+  grid-template-columns: 7fr 3fr;
   background-color: ${({ theme }) => theme.color.lightGrey};    
   overflow-y: hidden;
 `;
