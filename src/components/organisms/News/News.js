@@ -18,7 +18,7 @@ export const News = () => {
             <h2>No news</h2>
           ) : (
             news.map( ({ title, date, content, image }) => (
-              <ArticleWrapper>
+              <ArticleWrapper key={title}>
                 <h3>{title}</h3>
                 <StyledDate>
                   <CalendarIcon/>

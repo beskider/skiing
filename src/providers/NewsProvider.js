@@ -56,8 +56,7 @@ export const NewsProvider = ({ children }) => {
         setNews(sortNewsByLatest(mockedNews))
         setIsLoading(false)        
       }
-    }, 4000)
-     
+    }, 4000)     
     return () => clearTimeout(checkLoadedNewsFromServer)
   }, [])
 

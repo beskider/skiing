@@ -18,9 +18,9 @@ export const FormFieldInput = ({
     switch (type) {
       default:
       case 'text': 
-        return <InputForm type="text" {...props} />
+        return <InputForm type="text" data-testid={name} {...props}/>
       case 'checkbox':
-        return <CheckBoxForm type="checkbox" {...props} />
+        return <CheckBoxForm type="checkbox" data-testid={name} {...props}/>
     }
   }
   

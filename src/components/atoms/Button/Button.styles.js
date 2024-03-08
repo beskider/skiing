@@ -1,13 +1,13 @@
 import styled from "styled-components"
 
 export const StyledButton = styled.button`  
-  width: ${({ isround }) => isround ? '25px' : 'auto'};
-  height: ${({ isround }) => isround ? '25px' : 'auto'};
+  width: ${({ $isround }) => $isround ? '25px' : 'auto'};
+  height: ${({ $isround }) => $isround ? '25px' : 'auto'};
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: ${({ isround }) => isround ? '50%' : '4px'};
-  ${({ isround }) => isround || 'padding: 8px 30px'};
+  border-radius: ${({ $isround }) => $isround ? '50%' : '4px'};
+  ${({ $isround }) => $isround || 'padding: 8px 30px'};
   border: none;
   background-color: ${({ theme }) => theme.color.lightBlue };
   color: ${({ theme }) => theme.color.white };

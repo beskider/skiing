@@ -22,7 +22,7 @@ export const truncateStringCompleteWords = (str, maxLength) => {
   const lastSpace = result.lastIndexOf(" ")
   return  result
             .slice(0, lastSpace)
-            .replace(/[\.,!?-]$/, "")
+            .replace(/[.,!?-]$/, "")
             .concat('...')  
 }
 
