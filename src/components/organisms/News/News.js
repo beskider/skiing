@@ -6,33 +6,36 @@ import { NewsContext } from "providers/NewsProvider";
 
 export const News = () => {
 
-  const { isLoading, news } = useContext(NewsContext)
-  
+  const { isLoading, news, error } = useContext(NewsContext)
+
   return (
-    <Wrapper>         
-      {
-        isLoading ? (
-          <h3>Loading news...</h3> 
+    <Wrapper> 
+      { error ? (
+          <h3>{error}</h3>
         ) : (
-          !news.length ? (
-            <h2>No news</h2>
-          ) : (
-            news.map( ({ title, date, content, image }) => (
-              <ArticleWrapper key={title}>
-                <h3>{title}</h3>
-                <StyledDate>
-                  <CalendarIcon/>
-                  {date}
-                </StyledDate>
-                <ContentWrapper>
-                  {image ? <img src={image.url} alt="article"/> : null}
-                  <p>{truncateStringCompleteWords(content,200)}</p>
-                </ContentWrapper>
-              </ArticleWrapper>
-            ))
-          )         
+            isLoading ? (
+              <h3>Loading news...</h3> 
+            ) : (
+              !news.length ? (
+                <h2>No news</h2>
+              ) : (
+                news.map( ({ id, title, date, content, image }) => (
+                  <ArticleWrapper key={id}>
+                    <h3>{title}</h3>
+                    <StyledDate>
+                      <CalendarIcon/>
+                      {date}
+                    </StyledDate>
+                    <ContentWrapper>
+                      {image ? <img src={image.url} alt="article"/> : null}
+                      <p>{truncateStringCompleteWords(content,200)}</p>
+                    </ContentWrapper>
+                  </ArticleWrapper>
+                ))
+              )         
+            )
         )
-      }      
+      }
     </Wrapper>
   )
 }

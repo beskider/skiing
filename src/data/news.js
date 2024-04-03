@@ -5,6 +5,7 @@ import BpnImage from "assets/images/bpn.jpg";
 
 export const news = [
   { 
+    id: '1',
     title: '5 powodów dla których warto jeździć na nartach',
     date: '2024-02-27',
     content: `Czy warto jeździć na nartach? Oczywiście! Powodów na „tak” jest całe mnóstwo. Oto pięć z nich.
@@ -31,6 +32,7 @@ export const news = [
     }
   },
   { 
+    id: '2',
     title: 'Pierwszy całoroczny kryty stok w Polsce',
     date: '2024-02-23',
     content: `W Muszynie (Małopolskie) u podnóża Jaworzyny Krynickiej ma powstać pierwszy w Polsce 
@@ -47,6 +49,7 @@ export const news = [
     }
   },
   { 
+    id: '3',
     title: 'Narty u sąsiadów - nowości na Słowacji',
     date: '2024-02-15',
     content: `Tatry wysokie po słowackiej stronie granicy to zawsze dobra alternatywa 
@@ -64,6 +67,7 @@ export const news = [
     }
   },
   { 
+    id: '4',
     title: 'Babiogórski Park Narodowy otwiera szlaki dla skiturowców',
     date: '2024-02-12',
     content: `Podobnie jak w styczniu ubiegłego roku Babiogórski Park Narodowy poinformował o otwarciu 

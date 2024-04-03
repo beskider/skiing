@@ -8,6 +8,7 @@ export const ResortContext = createContext({
   addResort: () => {},
   deleteResort: () => {},
   isLoading: true,
+  error: '',
 })
 
 const mockResortsAPI = (timeout) => {
@@ -26,6 +27,7 @@ export const ResortsProvider = ({ children }) => {
 
   const [ resorts, setResorts ] = useState([]);
   const [ isLoading, setIsLoading ] = useState(true);
+  const [ error, setError ] = useState('');
 
   useEffect( () => {
     setIsLoading(true);
@@ -34,10 +36,13 @@ export const ResortsProvider = ({ children }) => {
         setIsLoading(false);
         setResorts(data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => { 
+        setError(err.message);
+        console.log(err);
+      })
   }, [])
 
-  const addResort = (data) => {    
+  const addResort = (data) => {        
     setResorts([ data, ...resorts ])
   }
 

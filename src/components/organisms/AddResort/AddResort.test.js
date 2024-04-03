@@ -22,6 +22,6 @@ describe('AddResort component', () => {
     fireEvent.change(screen.getByTestId('trailRatings'), { target: { value: 'red' }});
     fireEvent.click(screen.getByTestId('bunnySlope'));
     fireEvent.change(screen.getByTestId('www'), { target: { value: 'www.alpbachtal.at' }});
-    fireEvent.click(screen.getByText('Add'));
+    fireEvent.click(screen.getByText('Add'));          
   })
 })

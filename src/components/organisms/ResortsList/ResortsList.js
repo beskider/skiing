@@ -4,30 +4,34 @@ import { Title } from "components/atoms/Title/Title";
 import { ResortsListItem } from "components/molecules/ResortsListItem/ResortsListItem";
 import { useContext } from "react";
 import { ResortContext } from "providers/ResortsProvider";
-
 export const ResortsList = () => {
 
-  const { isLoading, resorts } = useContext(ResortContext);
+  const { isLoading, resorts, error } = useContext(ResortContext);
 
   return (
     <Wrapper>
-      <Title>Ski resorts</Title>           
-      { isLoading ? (
-          <h1>Loading...</h1>
+      <Title>Ski resorts</Title>     
+      { error ? (
+          <h2>{error}</h2> 
         ) : (
-          !resorts.length ? (
-            <h2>No resorts</h2>
+          isLoading ? (
+            <h1>Loading...</h1>
           ) : (
-            <StyledList>
-              { resorts.map( resort => (
-                  <ResortsListItem 
-                    key={resort.id}
-                    resort={resort} 
-                  />
-              ))}
-            </StyledList>
+            !resorts.length ? (
+              <h2>No resorts</h2>
+            ) : (
+              <StyledList>
+                { resorts.map( resort => (
+                    <ResortsListItem 
+                      key={resort.id}
+                      resort={resort} 
+                    />
+                ))}
+              </StyledList>
+            )
           )
-      )}
+        )
+      }
       <StyledLink to="/add-resort">
         <Button>New resort</Button>              
       </StyledLink>

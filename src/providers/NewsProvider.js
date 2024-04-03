@@ -22,6 +22,7 @@ export const query = `
 export const NewsContext = createContext({
   news: [],
   isLoading: true,
+  error: '',
 })
 
 export const NewsProvider = ({ children }) => {
@@ -30,6 +31,7 @@ export const NewsProvider = ({ children }) => {
 
   const [ news, setNews ] = useState([])
   const [ isLoading, setIsLoading ] = useState(true);
+  const [ error, setError ] = useState('')
 
   const fetchNews = async () => {    
     try {   
@@ -43,8 +45,9 @@ export const NewsProvider = ({ children }) => {
         })              
         setNews(sortNewsByLatest(response.data.data.allArticles))      
         setIsLoading(false)  
-    }  catch (error) {
-      console.log(error.message)
+    }  catch (err) {
+      setError(`Sorry, we couldn't load news... ${err.message}`);
+      console.log(err.message);
     }
   }
 
@@ -54,7 +57,8 @@ export const NewsProvider = ({ children }) => {
       if (!newsLength.current) {
         console.log('Loading mocked news from local file')
         setNews(sortNewsByLatest(mockedNews))
-        setIsLoading(false)        
+        setIsLoading(false)
+        setError('')        
       }
     }, 4000)     
     return () => clearTimeout(checkLoadedNewsFromServer)
@@ -68,7 +72,8 @@ export const NewsProvider = ({ children }) => {
     <NewsContext.Provider
       value={{        
         news,
-        isLoading
+        isLoading,
+        error
     }}>      
       {children}
     </NewsContext.Provider>
