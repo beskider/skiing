@@ -11,7 +11,7 @@ import { NewsProvider } from "providers/NewsProvider";
 const Root = () => {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <ThemeProvider theme={theme}>
       <GlobalStyle />
         <ResortsProvider>
