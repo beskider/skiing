@@ -1,9 +1,7 @@
 {
   "files": {
     "main.css": "/skiing/static/css/main.2e35888c.css",
-    "main.js": "/skiing/static/js/main.019cb88e.js",
-    "static/js/401.235b9db1.chunk.js": "/skiing/static/js/401.235b9db1.chunk.js",
-    "static/js/118.967a6cc8.chunk.js": "/skiing/static/js/118.967a6cc8.chunk.js",
+    "main.js": "/skiing/static/js/main.4ff60789.js",
     "static/media/bpn.jpg": "/skiing/static/media/bpn.dacd6e3f00967286a0e0.jpg",
     "static/media/indoor_slope.jpg": "/skiing/static/media/indoor_slope.f8fc5517b917b13792d0.jpg",
     "static/media/skiing.jpg": "/skiing/static/media/skiing.30e78c8fcec87af577e7.jpg",
@@ -11,12 +9,10 @@
     "static/media/delete-icon.svg": "/skiing/static/media/delete-icon.f6fff8e15e2693ecaf508ba22e6907ab.svg",
     "static/media/calendar-icon.svg": "/skiing/static/media/calendar-icon.575693c12b495c980e0891bf5b6ae5cb.svg",
     "index.html": "/skiing/index.html",
-    "main.019cb88e.js.map": "/skiing/static/js/main.019cb88e.js.map",
-    "401.235b9db1.chunk.js.map": "/skiing/static/js/401.235b9db1.chunk.js.map",
-    "118.967a6cc8.chunk.js.map": "/skiing/static/js/118.967a6cc8.chunk.js.map"
+    "main.4ff60789.js.map": "/skiing/static/js/main.4ff60789.js.map"
   },
   "entrypoints": [
     "static/css/main.2e35888c.css",
-    "static/js/main.019cb88e.js"
+    "static/js/main.4ff60789.js"
   ]
 }

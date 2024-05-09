@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkskiing=self.webpackChunkskiing||[]).push([[401],{401:(e,s,a)=>{a.d(s,{worker:()=>t});var b=a(40),r=a(845),i=a(443);const k=["green","blue","red","black"],n=[r.d.get("/trails",(()=>i.Z.json({trails:k}))),r.d.get("/user",(()=>i.Z.json({id:"c7b3d8e0-5e0b-4b0f-8b3a-3b9f4b3d3b3d",firstName:"John",lastName:"Maverick"})))],t=(0,b.L)(...n)}}]);
-//# sourceMappingURL=401.235b9db1.chunk.js.map
