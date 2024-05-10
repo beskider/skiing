@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const Wrapper = styled.li`  
   padding: 5px 0;
@@ -28,12 +29,20 @@ export const StyledItem = styled.div`
   color: ${({ theme }) => theme.color.black};
   padding: 5px 15px;
   p, a {
-    margin: 0;
-    
     font-size: ${({ theme }) => theme.fontSize.medium };
+    margin: 0;    
   }
   p:first-child {
     font-size: ${({ theme }) => theme.fontSize.xl};
     font-weight: bold;    
   }  
+`;
+
+export const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.color.black};
+  {
+    font-size: ${({ theme }) => theme.fontSize.xl };
+    font-weight: bold;
+  }
 `;

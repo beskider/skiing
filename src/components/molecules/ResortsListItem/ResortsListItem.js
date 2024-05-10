@@ -1,5 +1,5 @@
 import { ResortDifficultyBar } from "components/atoms/ResortDifficultyBar/ResortDifficultyBar";
-import { Wrapper, FigureWrapper, StyledItem } from "./ResortsListItem.styles";
+import { Wrapper, FigureWrapper, StyledItem, StyledNavLink } from "./ResortsListItem.styles";
 import {  ResortIcon } from "components/atoms/ResortIcon/ResortIcon";
 import { Button } from "components/atoms/Button/Button";
 import { getMaxTrailDifficulty, removeHttp } from "helpers";
@@ -7,6 +7,7 @@ import { ReactComponent as DeleteIcon } from "assets/icons/delete-icon.svg";
 import PropTypes from 'prop-types';
 import { useContext } from "react";
 import { ResortContext } from "providers/ResortsProvider";
+import { NavLink } from "react-router-dom";
 
 export const ResortsListItem = ({ resort: { id, name, place, liftCount, trailRatings = [], www } }) => {
   
@@ -19,7 +20,7 @@ export const ResortsListItem = ({ resort: { id, name, place, liftCount, trailRat
         <ResortDifficultyBar trailRatings={trailRatings}/>   
       </FigureWrapper>      
       <StyledItem>        
-          <p>{name}</p>
+          <StyledNavLink to={`/resort/${name}`}><p>{name}</p></StyledNavLink>
           <p>{place}</p>
           <a href={www}>{removeHttp(www)}</a>      
       </StyledItem>

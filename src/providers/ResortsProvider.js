@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 export const ResortContext = createContext({
   resorts: [],
+  findResort: () => {},
   addResort: () => {},
   deleteResort: () => {},
   isLoading: true,
@@ -42,6 +43,11 @@ export const ResortsProvider = ({ children }) => {
       })
   }, [])
 
+  const findResort = name => {
+    if (!name) return null;
+    return resorts.find( resort => resort.name.toLowerCase() === name.toLowerCase())
+  }
+
   const addResort = (data) => {        
     setResorts([ data, ...resorts ])
   }
@@ -55,6 +61,7 @@ export const ResortsProvider = ({ children }) => {
     <ResortContext.Provider 
       value={{
         resorts,
+        findResort,
         addResort,
         deleteResort,
         isLoading,
