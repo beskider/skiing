@@ -2,15 +2,19 @@ export const resorts = [
   {
     id: '1',
     name: 'Jurasówka',
-    country: 'Poland',
+    country: 'Polandss',
     place: 'Siemiechów',
     lat: 49.872,
     long: 20.898,  
+    alt: '390 - 453',
     liftCount: 2,
     liftTypes: [ 'chairs', 'button' ],
     trailRatings: [ 'green', 'blue', 'red' ],
     bunnySlope: true,
     www: 'https://jurasowka.pl',
+    phone: '14 6258091',
+    address: '33-181 Siemiechów 359',
+    maplink: 'https://pl.frame.mapy.cz/s/cozupugovu'
   },
   {
     id: '2',

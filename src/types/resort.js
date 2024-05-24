@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 export const LIFT_TYPES = {
+  CABLECAR: 'cablecar',
   CHAIRS: 'chairs',
   BUTTON: 'button'
 };
