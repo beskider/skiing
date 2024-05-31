@@ -2,21 +2,21 @@ import { ResortDifficultyBar } from "components/atoms/ResortDifficultyBar/Resort
 import { Wrapper, FigureWrapper, StyledItem, StyledNavLink } from "./ResortsListItem.styles";
 import {  ResortIcon } from "components/atoms/ResortIcon/ResortIcon";
 import { Button } from "components/atoms/Button/Button";
-import { getMaxTrailDifficulty, removeHttp } from "helpers";
+import { countLifts, getMaxTrailDifficulty, removeHttp } from "helpers";
 import { ReactComponent as DeleteIcon } from "assets/icons/delete-icon.svg";
 import PropTypes from 'prop-types';
 import { useContext } from "react";
 import { ResortContext } from "providers/ResortsProvider";
 import { NavLink } from "react-router-dom";
 
-export const ResortsListItem = ({ resort: { id, name, place, liftCount, trailRatings = [], www } }) => {
+export const ResortsListItem = ({ resort: { id, name, place, lifts, trailRatings = [], www } }) => {
   
   const { deleteResort } = useContext(ResortContext);
 
   return (
     <Wrapper>
       <FigureWrapper>
-        <ResortIcon value={getMaxTrailDifficulty(trailRatings)}>{liftCount}</ResortIcon>
+        <ResortIcon value={getMaxTrailDifficulty(trailRatings)}>{countLifts(lifts)}</ResortIcon>
         <ResortDifficultyBar trailRatings={trailRatings}/>   
       </FigureWrapper>      
       <StyledItem>        
@@ -33,8 +33,11 @@ ResortsListItem.propTypes = {
   resort: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    place: PropTypes.string, 
-    liftCount: PropTypes.number, 
+    place: PropTypes.string,         
+    lifts: PropTypes.arrayOf(PropTypes.shape({
+      type: PropTypes.string,
+      count: PropTypes.number,
+    })),
     trailRatings: PropTypes.arrayOf(PropTypes.string), 
     www: PropTypes.string,
   }),

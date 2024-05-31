@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 export const HeaderWrapper = styled.div`
   margin: 20px 0;    
   display: grid;
-  grid-template-columns: 100px 2fr 1fr;  
+  grid-template-columns: 100px 2fr 1fr 1fr;    
 `
 
 export const Logo = styled.div`    
@@ -25,6 +25,12 @@ export const Logo = styled.div`
 
 export const TitleWrapper = styled.div`  
   margin: auto 0;    
+`
+
+export const ResortIconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: start;  
 `
 
 export const Alt = styled.h3`
@@ -57,4 +63,12 @@ export const ResortMap = styled.iframe`
 export const Content = styled.div`
   grid-column: 1 / 2;
   grid-row: 1 / 4;    
+`
+
+export const TrailsBar = styled.div`
+  display: flex;
+  svg {
+    width: 80px;
+    height: 80px;    
+  }
 `

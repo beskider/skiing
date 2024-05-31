@@ -1,4 +1,9 @@
-import { Wrapper, HeaderWrapper, Logo, TitleWrapper, Alt, ContentWrapper, Content, ResortImage, ResortView, ResortMap } from './Resort.styles';
+import { Wrapper, HeaderWrapper, Logo, TitleWrapper, ResortIconWrapper, Alt, ContentWrapper, Content, TrailsBar, ResortImage, ResortView, ResortMap } from './Resort.styles';
+import { ReactComponent as PersonSkiing } from "assets/icons/person-skiing.svg";
+
+import { getMaxTrailDifficulty, countLifts } from 'helpers';
+import { ResortIcon } from 'components/atoms/ResortIcon/ResortIcon';
+import { ResortDifficultyBar } from 'components/atoms/ResortDifficultyBar/ResortDifficultyBar';
 
 import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -28,56 +33,95 @@ export const Resort = () => {
     <Wrapper>      
       <HeaderWrapper>
         <Logo>
-          <img src={process.env.PUBLIC_URL + "/images/resorts/jurasowka-logo.jpg"} alt="Resort logo" />
+          <img src={process.env.PUBLIC_URL + `/images/resorts/${resort?.shortname}-logo.jpg`} alt="Resort logo" />
         </Logo>
         <TitleWrapper>
           <h1>{resort?.name}</h1>
           <h3>{resort?.place}{ resort?.country === 'Poland' || `, ${resort?.country}` }</h3>
         </TitleWrapper>
+        <ResortIconWrapper>
+          <ResortIcon isBig value={getMaxTrailDifficulty(resort?.trailRatings)}>{countLifts(resort?.lifts)}</ResortIcon>
+        </ResortIconWrapper>
         <Alt>{resort?.alt} <small>m n.p.m.</small></Alt>
       </HeaderWrapper>
       <ContentWrapper>
         <Zoom>
           <ResortView 
             alt="View"
-            src={process.env.PUBLIC_URL + "/images/resorts/jurasowka-view.jpg"}  
+            src={process.env.PUBLIC_URL + `/images/resorts/${resort?.shortname}-view.jpg`}  
           />      
         </Zoom>
         <Zoom>
           <ResortImage 
             alt="Photo"
-            src={process.env.PUBLIC_URL + "/images/resorts/jurasowka-image.jpg"}  
+            src={process.env.PUBLIC_URL + `/images/resorts/${resort?.shortname}-image.jpg`}  
           />      
         </Zoom>
-        <LiftsPanel lifts={resort.liftTypes} />
+        <LiftsPanel lifts={resort.lifts} />
         <Content>
-
-
-
-
-
           <h2>About</h2>
-          <FontAwesomeIcon icon={faPenNib} />
-          <FontAwesomeIcon icon={faEnvelope} />
+          <p>{resort?.description}</p>
+          <TrailsBar>
+            <PersonSkiing />
+            <ResortDifficultyBar trailRatings={resort?.trailRatings}/>   
+          </TrailsBar>
+          <h2>Contact</h2>   
+          <p><strong>{resort?.name}</strong></p>
+          <p>{resort?.country === 'Poland' || resort?.country}</p>
+          <div>
+            <FontAwesomeIcon icon={faPenNib} />
+            <span>{resort?.address}</span>
+          </div>
+          <div>
+            <FontAwesomeIcon icon={faEnvelope} />
+            <span>{resort?.phone}</span>
+          </div>        
+          <div>
+            <FontAwesomeIcon icon={faEnvelope} />
+            <span>{resort?.www}</span>
+          </div>        
+          <h2>Localization</h2>
+          <div>
+            <FontAwesomeIcon icon={faEnvelope} />
+            <span>{resort?.lat} {resort?.long}</span>
+          </div>   
+
+
+
+
+    
+    {/* 
+
+    trailRatings: [ 'green', 'blue', 'red' ],
+    bunnySlope: true,
+    www: 'https://jurasowka.pl',
+    phone: '14 625 80 91',
+    address: '33-181 Siemiechów 359', 
+    */}
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           
-          <p>lat: {resort?.lat}</p>
-          <p>long: {resort?.long}</p>
 
-          <p>liftCount: 2</p>
-          <p>liftTypes: [ 'chairs', 'button' ]</p>
-          <p>trailRatings: [ 'green', 'blue', 'red' ]</p>
-          <p>bunnySlope: true</p>
+       
 
-
-          <h2>Contact</h2>          
-          <h3>
-            <p>{resort?.country === 'Poland' || resort?.country}</p>
-            <p>{resort?.address}</p>
-            <p>{resort?.phone}</p>
-          </h3>
-          <h3>{resort?.www}</h3>
           
           
 
@@ -87,7 +131,7 @@ export const Resort = () => {
           <h2>Map</h2>
           <ResortMap 
             title="Map" 
-            src="https://pl.frame.mapy.cz/s/cozupugovu" 
+            src={resort?.maplink} 
             width="300" heigh="250"
             frameborder="0"
           />

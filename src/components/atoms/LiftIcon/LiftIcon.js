@@ -7,7 +7,8 @@ import { ReactComponent as ChairsIcon } from "assets/icons/chairs-icon.svg";
 
 import { LIFT_TYPES } from 'types/resort';
 
-export const LiftIcon = ({ type, no = 0 }) => {
+export const LiftIcon = ({ liftType, no = 0 }) => {
+
   if ( no === 0 ) return null;
 
   const renderIcon = liftType => {
@@ -25,7 +26,7 @@ export const LiftIcon = ({ type, no = 0 }) => {
 
   return (
     <Wrapper>
-      { renderIcon(type) }
+      { renderIcon(liftType) }
       <LiftLabel>{no}</LiftLabel>
     </Wrapper>
   )

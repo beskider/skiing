@@ -5,8 +5,8 @@ export const LiftsPanel = ({ lifts }) => (
   <Wrapper>
     <Title>Wyciągi</Title>
     <IconWrapper>
-      { Array.isArray(lifts) && lifts.map( liftType => (
-          <LiftIcon type={liftType} no={2} />                  
+      { Array.isArray(lifts) && lifts.map( lift => (
+          <LiftIcon liftType={lift.type} no={lift.count}/>                  
       ))}
     </IconWrapper>
   </Wrapper>

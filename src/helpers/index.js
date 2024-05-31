@@ -1,5 +1,6 @@
 export const sortTrailsFromHardest = trails => {
-  const result = [];    
+  const result = [];
+  if (!trails) return result;
   trails.includes('black') && result.push('black');
   trails.includes('red') && result.push('red');
   trails.includes('blue') && result.push('blue');
@@ -7,13 +8,22 @@ export const sortTrailsFromHardest = trails => {
   return result;
 }
 
-export const getMaxTrailDifficulty = ( trails ) => {
+export const getMaxTrailDifficulty = trails => {
+  if (!trails) return null;
   if (trails.includes('black')) return 'black'
   else if (trails.includes('red')) return 'red'
   else if (trails.includes('blue')) return 'blue'
   else if (trails.includes('green')) return 'green'
   return null;
 };
+
+export const countLifts = lifts => {
+  if (!lifts) return null;
+  return lifts.reduce( (acc, curr) => {
+    const value = curr.count;
+    return Number.isInteger(value) ? acc + value : acc;
+  }, 0  );
+}
 
 export const removeHttp = url => url && url.replace(/^https?:\/\//, '') 
 
