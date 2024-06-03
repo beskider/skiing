@@ -47,7 +47,14 @@ export const resorts = [
     phone: '17 277 79 09',
     address: '38-131 Gogołów 20c, ',
     maplink: 'https://pl.frame.mapy.cz/s/conusagago',
-    shortname: 'gogolow'
+    shortname: 'gogolow',
+    description: `
+      W Gogołowie znajdują się 2 wyciągi talerzykowe o długości 500 m, a trasa zjazdowa liczy 600 – 700 m. Jest także wyciąg z niskim prowadzeniem liny o długości 180 m i trasa zjazdowa licząca 200 - 300 m.
+      Trasy są otwarte codziennie w godzinach od 10 do 21. Są oświetlone, naśnieżane i ratrakowane.
+      Najmłodsi mają do dyspozycji specjalną trasę zjazdową  przy górnej stacji wyciągów. Można tutaj spotkać również tych starszych; początkujących narciarzy. W górnej części stoku znajduje się także trasa do zjazdu pontonami (tubing) oraz karuzela z pontonami.
+      Przy dolnej i górnej stacji wyciągów znajdują się wypożyczalnie sprzętu sportowego. Można tutaj także skorzystać z usług serwisu narciarskiego. Początkujący narciarze czy snowboardziści mogą skorzystać ze szkółek narciarskich bądź z usług indywidualnych instruktorów.
+      Gogołów to wieś w Polsce położona w województwie podkarpackim, liczy około 1500 mieszkańców. Leży nad potokiem Gogołówka. Przechodzi tędy droga Frysztak-Klecie. W latach 1954–1961 wieś należała i była siedzibą władz gromady Gogołów, po jej zniesieniu w gromadzie Glinik Górny. W latach 1975–1998 miejscowość administracyjnie należała do województwa rzeszowskiego.
+    `
   },
   {
     id: '3',
@@ -73,7 +80,12 @@ export const resorts = [
     phone: '13 435 90 01',
     address: '38-480 Puławy 16',
     maplink: 'https://pl.frame.mapy.cz/s/dacorurodo',
-    shortname: 'kiczera'
+    shortname: 'kiczera',
+    description: `
+      Ośrodek Sportów Zimowych KiczeraSki w Puławach Górnych to ośrodek narciarski położony na północnym zboczu Kiczery (640 m n.p.m.) w Paśmie Bukowicy w Beskidzie Niskim na terenie powiatu krośnieńskiego w gminie Rymanów.
+      W skład kompleksu wchodzą wyciągi: 2 - osobowy wyciąg krzesełkowy o długości 900 m i przewyższeniu 170 m oraz przepustowości 1200 osób na godzinę, czas przejazdu – 5 min 40 sek. Wyciąg talerzykowy o długości 420 m i przewyższeniu 90 m oraz przepustowości 450 osób na godzinę, obsługujący również snowpark. Tzw. wyrwirączka „Babylift” o długości 120 m i przewyższeniu 15 m oraz przepustowości 200 osób na godzinę.
+      Do dyspozycji fanów białego szaleństwa oddany jest wyciąg krzesełkowy oraz talerzykowy. Trasy zjazdowe o zróżnicowanym poziomie zaawansowania, trasa skiturowa, snowpark, restauracja Amadeus, wypożyczalnia oraz Ski szkółka.
+    `
   },
   {
     id: '4',
@@ -99,7 +111,12 @@ export const resorts = [
     phone: '512 409 905',
     address: '33-380 Krynica-Zdrój, ul. Słotwińska 51',
     maplink: 'https://pl.frame.mapy.cz/s/mudakecera',
-    shortname: 'slotwiny'
+    shortname: 'slotwiny',
+    description: `
+      Ośrodek narciarski i rowerowy Słotwiny Arena w Krynicy położony w Słotwinach, dzielnicy Krynicy-Zdroju, w Beskidzie Sądeckim na południowo-wschodnim zboczu Drabiakówki (ok. 896 m n.p.m). Drabiakówka znajduje się na bocznym grzbiecie Pasma Jaworzyny, który w tym miejscu opadając w kierunku Przełęczy Krzyżowej (ok. 770 m) oddziela Słotwiny od osiedla Czarny Potok. Tuż obok Słotwiny Arena (na północny zachód) znajduje się Kompleks Narciarski Słotwiny w Krynicy, również na zboczu tego samego grzbietu.
+      Latem działa Bike Park z 4 trasami rowerowymi oraz Wieża widokowa ze ścieżką w koronach drzew. 
+      Obiekt oferuje taras, bezpłatny prywatny parking, bar oraz dojazd do budynku na nartach. Odległość ważnych miejsc od obiektu: Muzeum Nikifora – 3,4 km. Do dyspozycji Gości przygotowano takie udogodnienia, jak restauracja, obsługa pokoju, bankomat. Odległość ważnych miejsc od obiektu: PKP Krynica Zdrój – 4,5 km.
+    `
   },
   {
     id: '5',
@@ -125,7 +142,13 @@ export const resorts = [
     phone: '18 506 51 00',
     address: '34-741 Kasina Wielka 672',
     maplink: 'https://pl.frame.mapy.cz/s/palasememo',
-    shortname: 'kasina'
+    shortname: 'kasina',
+    description: `
+      Kasina Ski & Bike Park to ukochana przestrzeń pasjonatów sportów zimowych i letnich. 
+      Ośrodek powstał ponad 40 lat temu w miejscu, znanym w okolicy z najdłużej utrzymującego się śniegu – zwanym kiedyś Śnieżną Górą, a obecnie Śnieżnicą. To właśnie tutaj, z wielkiej pasji do nart, powstał ośrodek narciarski, który od kilku lat latem, gdy stopnieją śniegi, przekształca się w Bike Park.
+      Wspaniałe imprezy plenerowe, zawody ogólnopolskie, bogata oferta zimowa i letnia oraz serce, które wkładamy w codzienną pracę sprawiają, że Kasina stała się symbolem świetnej, sportowej zabawy na świeżym powietrzu niezależnie od wieku, kondycji fizycznej oraz pory roku.
+      To jedno z pięciu wyjątkowych miejsc na turystycznej mapie Polski, obok Czarnego Gronia, Kurzej Góry, Skolnity i Słotwiny Arena, należących do Grupy Pingwina.
+    `
   },
   {
     id: '6',
@@ -151,7 +174,13 @@ export const resorts = [
     phone: '18 207 13 30',
     address: '34-512 Witów 205c',
     maplink: 'https://pl.frame.mapy.cz/s/dovuzuluge',
-    shortname: 'witow'
+    shortname: 'witow',
+    description: `
+      Stacja Narciarska Witów-Ski w Witowie położony jest w gminie Kościelisko na wschodnich zboczach grzbietu Wierchów Orawicko-Witowskich między Magurą Witowską a Masnakovą.
+      W skład kompleksu wchodzą: 4-osobowa kolej krzesełkowa firmy Doppelmayr Garaventa Group z taśmą rozpędową, o długości 1000 m i przepustowości 2200 osób na godzinę i przewyższeniu – 150 m, czas wjazdu – 6 minut, wyciąg talerzykowy o długości 120 m, przewyższeniu 30 m i przepustowości 300 osób na godzinę.
+      Stacja narciarska Witów Ski znajduje się w niewielkiej odległości od takich atrakcji turystycznych jak: Dolina Chochołowska, Dolina Kościeliska, baseny termalne w Chochołowie i w Oravicach (Meander Park).
+      Witowianka to restauracja samoobsługowa dla osób, które chcą zjeść przede wszystkim szybko i smacznie. Restauracja jest położona zaraz obok dolnej stacji Witów Ski. 
+    `
   },
   {
     id: '7',
@@ -177,7 +206,12 @@ export const resorts = [
     phone: '785 187 667',
     address: '34-460 Jaworki, Zaskalskie 16',
     maplink: 'https://pl.frame.mapy.cz/s/hogedeboge',
-    shortname: 'jaworki'
+    shortname: 'jaworki',
+    description: `
+      Ośrodek położony jest w Jaworkach jednym z najpiękniejszych zakątków Polski, na styku dwóch pasm górskich – pasma Radziejowej i Małych Pienin. Położenie to, powoduje, że panuje tutaj wyjątkowy, służący zdrowiu mikroklimat oraz niezwykłe bogactwo form krajobrazu.
+      Atrakcje regionu: Klub Muzyczna Owczarnia, Architektura świecka i sakralna, Stadnina koni Bukowinki,  Rezerwat przyrody Wąwóz Homole, Rezerwat Przyrody Zaskalskie – Bodnarówka, Rezerwat Przyrody Biała Woda, Rezerwat Przyrody Wysokie Skałki, Stadnina koni Rajd, kuligi zaprzęgami konnymi.
+      Arena Narciarska o łącznej powierzchni 27 ha graniczy od wschodu z rezerwatem Zaskalskie Bodnarówka, a od zachodu z rezerwatem Wąwóz Homole. Wyciągi położone są na północnym stoku Bukowinek w dolinie potoku Skalskie. W ośrodku narciarskim do dyspozycji narciarzy i snowboardzistów funkcjonują 2 wyciągi orczykowe oraz kolej linowa 2-osobowa.
+    `
   },
   {
     id: '8',
@@ -203,7 +237,11 @@ export const resorts = [
     phone: '22 444 66 66',
     address: '34-460 Szczawnica, ul. Główna 7',
     maplink: 'https://pl.frame.mapy.cz/s/kehepabaco',
-    shortname: 'palenica'
+    shortname: 'palenica',
+    description: `
+      Wyciąg krzesełkowy Palenica. Trasa wyciągu pokonuje odległość 777 metrów, a różnica wysokości między dolną a górną stacją kolejki to 263 metry. Kolejka porusza się po linie wspieranej przez dziesięć podpór trasowych. Wyciąg składa się z 54 krzesełek mieszczących jednocześnie 4 osoby. Czas przejazdu w jedną stronę wynosi od 4 do 5 minut, a zdolność przewozowa kolejki to aż 2200 osoby na godzinę. 
+      Palenica jest także świetnym punktem dla wycieczek pieszych. Prowadzi stąd m.in. szlak turystyczny na najwyższy szczyt Pienin – Wysoką. Trasa biegnie przez widokowy Wysoki Wierch, dalej Durbaszkę na Wysoką, skąd można zejść do Jaworek przez Wąwóz Homole lub Przełęcz Rozdziela.
+    `
   },
   {
     id: '9',
@@ -225,7 +263,11 @@ export const resorts = [
     phone: '18 20 636 44',
     address: '34-500 Zakopane, Kalatówki',
     maplink: 'https://pl.frame.mapy.cz/s/lefuhogamo',
-    shortname: 'kalatowki'
+    shortname: 'kalatowki',
+    description: `
+      Obok Hotelu Górskiego PTTK Kalatówki zlokalizowany jest orczykowy wyciąg narciarski. Wyciąg o długości 400 m znajduje się w Suchym Żlebie. Warunki naturalne stoku  sprzyjają długiemu utrzymywaniu się naturalnej pokrywy śnieżnej. Stok łatwy do jazdy, utrzymywany ratrakiem. Dysponujemy wykwalifikowaną kadrą instruktorską. W Hotelu znajduje się wypożyczalnia sprzętu narciarskiego i snowboardowego oraz serwis. Dla dzieci przygotowaliśmy przedszkole narciarskie.
+      Na Kalatówkach szczególnie dobrze czują się młodzi narciarze. Na bezpiecznym stoku czeka na nich moc atrakcji. Dzieciaki uczą się pod czujnym okiem doświadczonych instruktorów korzystając ze specjalnie przygotowanego przedszkola w Suchym Żlebie. Już po kilku dniach ćwiczeń poprzez zabawę maluchy śmigają wesoło między barwnymi figurkami zwierzątek porozstawianych jak slalomowe tyczki na specjalnie wydzielonej dla dzieci części stoku.
+    `
   },
   {
     id: '10',
@@ -251,7 +293,12 @@ export const resorts = [
     phone: '18 414 31 30',
     address: '33-350 Wierchomla Mała 42',
     maplink: 'https://pl.frame.mapy.cz/s/hosebucubu',
-    shortname: 'wierchomla'
+    shortname: 'wierchomla',
+    description: `
+      Stacja narciarska położona jest w Beskidach, 12 km od Piwnicznej - Zdroju. Unikalne warunki narciarskie stacja zawdzięcza specyficznym warunkom klimatycznym - śnieg utrzymuje się tutaj długo (od listopada do kwietnia), a temperatura jest średnio o 4 stopnie niższa, niż w pobliskich miejscowościach.
+      To jedna z największych rodzinnych stacji  narciarskich w Polsce i jest zaliczana do czołówki najdynamiczniej rozwijających się ośrodków narciarskich w kraju. Trasy zjazdowe o różnym stopniu trudności, z czego część jest oświetlona i umożliwia szusowanie do późnych godzin wieczornych.
+      Narciarze i snowboardziści mogą korzystać z wyciągów krzesełkowych oraz orczykowych. Bogata i różnorodna infrastruktura umożliwia aktywny i ciekawy wypoczynek rodzinom. Na terenie stacji narciarskiej znajduje się wypożyczalnia, serwis oraz przechowalnia sprzętu narciarskiego. Dla początkujących adeptów narciarstwa i snowboardu oferowane są kursy nauki jazdy na nartach w licencjonowanej szkole narciarskiej. 
+    `
   },
   {
     id: '11',
@@ -277,6 +324,13 @@ export const resorts = [
     phone: '12 357 22 31',
     address: '32-400 Myślenice, ul. Jodłowa 1f',
     maplink: 'https://pl.frame.mapy.cz/s/jokometefu',
-    shortname: 'myslenice'
+    shortname: 'myslenice',
+    description: `
+      Sport Arena Myślenice to stacja narciarska w Beskidzie Wyspowym na górze Chełm. Znajdują się tam 2 trasy narciarskie o dł. 855 m i 1100 m. Jedna z nich posiada homologację FIS, obie są oświetlone, naśnieżane oraz ratrakowane. Na szczycie Góry znajduje się orczyk talerzykowy o dł. 150 m. Do odwiedzin kompleksu zachęcają piękne widoki na Myślenice i panoramę Krakowa. Dla osób początkujących, chcących rozpocząć swoją przygodę ze sportami zimowymi, przygotowano specjalną „Górkę Wrażeń" zlokalizowaną w dolnej części Zarabia, tuż przy krytym lodowisku, z przenośnikiem taśmowym o dł. 84 m. W skład Kompleksu wchodzą wypożyczalnie, szkółka narciarska, serwis, kryte lodowisko, restauracja i karczma.
+      Przy dolnej stacji wyciągu znajduje się wypożyczalnia i serwis narciarski, przeszklony drink-bar, bezpłatny parking o pojemności 200 samochodów. Przy górnej stacji wyciągu znajdują się placówka GOPR
+      szkoła narciarska.
+      Karczma na szczycie góry Chełm, może pomieścić 120 osób, a wraz z podcieniami – 300 osób.
+      Na szczycie góry Chełm znajduje się wieża widokowa. Jest jedną z największych atrakcji atrakcją ośrodka. Z jej platformy można obserwować panoramę Myślenic, a w pogodny dzień także Beskidów i Gorców. W sprzyjających warunkach dojrzeć Tatry.
+    `
   },
 ]
