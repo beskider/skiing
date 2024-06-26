@@ -11,7 +11,7 @@ export const ResortsList = () => {
 
   const renderResorts = () => {
     if ( error ) return <h2>{error}</h2> 
-    if ( isLoading ) return <h1>Loading...</h1>
+    if ( isLoading ) return <h2>Loading...</h2>
     if ( !resorts.length ) return <h2>No resorts</h2>
     return (
       <StyledList>

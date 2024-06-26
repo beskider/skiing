@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ResortIcon = styled.div`
-  width: ${({ isBig }) => isBig ? '60px' : '30px' };
+  width: ${({ isBig }) =>  isBig ? '60px' : '30px' };
   height: ${({ isBig }) => isBig ? '60px' : '30px' };
   border-radius: 50%;
   color: white;
