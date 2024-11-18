@@ -7,7 +7,6 @@ import { ReactComponent as DeleteIcon } from "assets/icons/delete-icon.svg";
 import PropTypes from 'prop-types';
 import { useContext } from "react";
 import { ResortContext } from "providers/ResortsProvider";
-import { NavLink } from "react-router-dom";
 
 export const ResortsListItem = ({ resort: { id, name, place, lifts, trailRatings = [], www } }) => {
   

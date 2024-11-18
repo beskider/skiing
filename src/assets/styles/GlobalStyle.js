@@ -10,11 +10,11 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: ${({ theme }) => theme.color.black };
     background-color: ${({ theme }) => theme.color.lightGrey };
   }
   a, button {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
 `;

@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   grid-column: 2 / 3;
   grid-row: 3;
-  width: 100%;
+  width: 100%;  
+  height: fit-content;
   padding: 5px 10px;
   border: 2px solid ${({ theme }) => theme.color.grey};
   border-radius: 8px;

@@ -1,4 +1,4 @@
-import { Wrapper, HeaderWrapper, Logo, TitleWrapper, ResortIconWrapper, Alt, ContentWrapper, Content, TrailsBar, ResortImage, ResortView, ResortMap } from './Resort.styles';
+import { Wrapper, HeaderWrapper, Logo, TitleWrapper, ResortIconWrapper, Alt, ContentWrapper, Content, TrailsBar, ResortImage, ResortView, ResortMap, ResortInfoEntry } from './Resort.styles';
 import { ReactComponent as PersonSkiing } from "assets/icons/person-skiing.svg";
 
 import { getMaxTrailDifficulty, countLifts } from 'helpers';
@@ -14,7 +14,7 @@ import { LiftsPanel } from "components/molecules/LiftsPanel/LiftsPanel";
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenNib, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faAddressCard, faPhoneFlip, faGlobe, faMapPin } from '@fortawesome/free-solid-svg-icons'
 
 export const Resort = () => {
 
@@ -33,14 +33,14 @@ export const Resort = () => {
     <Wrapper>      
       <HeaderWrapper>
         <Logo>
-          <img src={process.env.PUBLIC_URL + `/images/resorts/${resort?.shortname}-logo.jpg`} alt="Resort logo" />
+          <img src={process.env.PUBLIC_URL + `/images/resorts/${resort?.shortname}-logo.png`} alt="Resort logo" />
         </Logo>
         <TitleWrapper>
           <h1>{resort?.name}</h1>
           <h3>{resort?.place}{ resort?.country === 'Poland' || `, ${resort?.country}` }</h3>
         </TitleWrapper>
         <ResortIconWrapper>
-          <ResortIcon isBig value={getMaxTrailDifficulty(resort?.trailRatings)}>{countLifts(resort?.lifts)}</ResortIcon>
+          <ResortIcon $isBig value={getMaxTrailDifficulty(resort?.trailRatings)}>{countLifts(resort?.lifts)}</ResortIcon>
         </ResortIconWrapper>
         <Alt>{resort?.alt} <small>m n.p.m.</small></Alt>
       </HeaderWrapper>
@@ -68,23 +68,26 @@ export const Resort = () => {
           <h2>Contact</h2>   
           <p><strong>{resort?.name}</strong></p>
           <p>{resort?.country === 'Poland' || resort?.country}</p>
-          <div>
-            <FontAwesomeIcon icon={faPenNib} />
+          
+
+          <ResortInfoEntry>
+            <FontAwesomeIcon icon={faAddressCard} />
             <span>{resort?.address}</span>
-          </div>
-          <div>
-            <FontAwesomeIcon icon={faEnvelope} />
+          </ResortInfoEntry>
+          <ResortInfoEntry>
+            <FontAwesomeIcon icon={faPhoneFlip} />
             <span>{resort?.phone}</span>
-          </div>        
-          <div>
-            <FontAwesomeIcon icon={faEnvelope} />
+          </ResortInfoEntry>        
+          <ResortInfoEntry>
+            <FontAwesomeIcon icon={faGlobe} />
             <span>{resort?.www}</span>
-          </div>        
+          </ResortInfoEntry>   
+
           <h2>Localization</h2>
-          <div>
-            <FontAwesomeIcon icon={faEnvelope} />
+          <ResortInfoEntry>
+            <FontAwesomeIcon icon={faMapPin} />
             <span>{resort?.lat} {resort?.long}</span>
-          </div>   
+          </ResortInfoEntry>   
 
 
 
@@ -115,9 +118,6 @@ export const Resort = () => {
 
 
 
-
-
-
           
 
        
@@ -132,8 +132,7 @@ export const Resort = () => {
           <ResortMap 
             title="Map" 
             src={resort?.maplink} 
-            width="300" heigh="250"
-            frameborder="0"
+            width="300" height="200"
           />
         </Content>
       </ContentWrapper>

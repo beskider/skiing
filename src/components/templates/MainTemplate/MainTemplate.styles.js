@@ -9,13 +9,11 @@ export const Wrapper = styled.div`
   grid-template-rows: 100px 1fr;
   grid-template-columns: 7fr 3fr;
   background-color: ${({ theme }) => theme.color.lightGrey};    
-  overflow-y: hidden;
 `;
 
 export const ContentWrapper = styled.div`  
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 20px;
   grid-row: 2 / 3;
   grid-column: 1 / 2;
+  margin: 0 auto;
 `;
