@@ -17,4 +17,7 @@ export const GlobalStyle = createGlobalStyle`
   a, button {
     font-family: 'Montserrat', sans-serif;
   }
+  .leaflet-container {
+    height: 100vh;
+  }
 `;

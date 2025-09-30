@@ -1,5 +1,5 @@
 import { Button } from "components/atoms/Button/Button";
-import { Wrapper, StyledList, StyledLink } from "./ResortsList.styles";
+import { Wrapper, StyledList, StyledButtons, StyledLink } from "./ResortsList.styles";
 import { Title } from "components/atoms/Title/Title";
 import { ResortsListItem } from "components/molecules/ResortsListItem/ResortsListItem";
 import { useContext } from "react";
@@ -29,9 +29,11 @@ export const ResortsList = () => {
     <Wrapper>
       <Title>Ski resorts</Title>     
       { renderResorts() }
-      <StyledLink to="/add-resort">
-        <Button>New resort</Button>              
-      </StyledLink>
+      <StyledButtons>
+        <StyledLink to="/resort/add">
+          <Button>Add resort</Button>              
+        </StyledLink>
+      </StyledButtons>      
     </Wrapper>
   );
 };

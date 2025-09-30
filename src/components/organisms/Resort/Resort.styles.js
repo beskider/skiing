@@ -5,7 +5,8 @@ export const Wrapper = styled.div`
   padding: 20px; 
   border-radius: 5px;
   width: 100%;  
-  margin: 10px;  
+  max-width: 1200px;
+  margin: 0 auto;
 `
 
 export const HeaderWrapper = styled.div`

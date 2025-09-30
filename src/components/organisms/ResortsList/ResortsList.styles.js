@@ -8,13 +8,22 @@ export const Wrapper = styled.div`
   border-radius: 5px;
   width: 100%;
   max-width: 500px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);  
-  margin: 20px;
-`;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);    
+  margin: 10px auto;
+  `;
 
 export const StyledList = styled.ul`
   list-style: none;
   padding: 0;  
+`;
+
+export const StyledButtons = styled.div`
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+  gap: 5px;
+  align-items: center;
+  padding: 20px 5px;
 `;
 
 export const StyledLink = styled(Link)`

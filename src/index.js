@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Root from 'views/Root';
+import { Root } from 'views/Root';
 import 'assets/styles/fonts.css';
 import 'assets/styles/normalize.css';
 

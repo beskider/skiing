@@ -8,12 +8,11 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 100px 1fr;
   grid-template-columns: 7fr 3fr;
-  background-color: ${({ theme }) => theme.color.lightGrey};    
+  background-color: ${({ theme }) => theme.color.lightGrey};  
 `;
 
 export const ContentWrapper = styled.div`  
-  padding: 20px;
   grid-row: 2 / 3;
-  grid-column: 1 / 2;
-  margin: 0 auto;
+  grid-column: 1 / 2; 
+  padding: 10px;
 `;
