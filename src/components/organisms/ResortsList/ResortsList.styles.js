@@ -7,14 +7,15 @@ export const Wrapper = styled.div`
   padding-bottom: 20px;
   border-radius: 5px;
   width: 100%;
-  max-width: 500px;
+  max-width: 800px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);    
   margin: 10px auto;
   `;
 
-export const StyledList = styled.ul`
+export const StyledResortList = styled.ul`
   list-style: none;
   padding: 0;  
+  margin-top: 1rem;
 `;
 
 export const StyledButtons = styled.div`

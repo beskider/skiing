@@ -1,5 +1,5 @@
 import { InputForm } from "components/atoms/InputForm/InputForm";
-import { StyledFormField } from "./FormFieldInput.styles";
+import { StyledFormField, InputWrapper } from "./FormFieldInput.styles";
 import { LabelForm } from "components/atoms/LabelForm/LabelForm";
 import PropTypes from "prop-types";
 import { CheckBoxForm } from "components/atoms/CheckBoxForm/CheckBoxForm";
@@ -10,15 +10,26 @@ export const FormFieldInput = ({
   name,
   value,
   onChange,
+  placeholder,
+  icon,
   type = "text",
 }) => {  
 
-  const inputElement = (type) => {
+  const inputElement = type => {
     const props = { id, label, name, value, onChange, type }
     switch (type) {
       default:
       case 'text': 
-        return <InputForm type="text" data-testid={name} {...props}/>
+        return (
+          icon ? (
+              <InputWrapper>
+                { icon }
+                <InputForm type="text" data-testid={name} placeholder={placeholder} {...props} $isInputWithIcon="true"/>
+              </InputWrapper>
+            ) : (
+              <InputForm type="text" data-testid={name} placeholder={placeholder} {...props}/>
+            ) 
+        )
       case 'checkbox':
         return <CheckBoxForm type="checkbox" data-testid={name} {...props}/>
     }
