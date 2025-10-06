@@ -18,7 +18,7 @@ export const NavigationSearchButton = () => {
     setIsOpen(false)
   }
 
-  const toggleOpen = () => isOpen ? closeSearch() : setIsOpen(true)
+  const toggleOpen = () => ( isOpen ? closeSearch() : setIsOpen(true) ) 
   
   const handleSearchChange = e => {
     const searchText = e.target.value

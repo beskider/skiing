@@ -65,6 +65,7 @@ export const ResortsProvider = ({ children }) => {
         addResort,
         deleteResort,
         isLoading,
+        error
     }}>
       {children}
     </ResortContext.Provider>

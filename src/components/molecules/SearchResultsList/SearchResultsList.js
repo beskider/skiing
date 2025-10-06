@@ -1,20 +1,19 @@
-import { NavLink, redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { StyledSearchResultsList } from './SearchResultsList.styles';
-// import { NavLink } from 'react-router-dom';
 
 export const SearchResultsList = ({ results, closeSearch }) => {
 
-
-  const handleClickLink = name => {    
-    // redirect(`/resort/${name}`)
-    closeSearch()   
-  }
-
+  const handleClickLink = () => closeSearch()   
+  
   return (
-    <StyledSearchResultsList>
-      {/* { results.map( (result, id) => <p key={id} onClick={() => handleClickLink(result.name)}>{result.name}</p>) }                */}
-      { results.map( (result, id) => <NavLink key={id} onClick={() => handleClickLink(result.name)} to={`/resort/${result.name}`}>{result.name}</NavLink>) }               
+    <StyledSearchResultsList>   
+      { results.map( (result, id) => {
+          return (
+            <p key={id}>
+              <Link  to={`/resort/${result.name}`} onClick={() => handleClickLink()}>{result.name}</Link>
+            </p>
+          )
+      })}   
     </StyledSearchResultsList>
   )
-
 }

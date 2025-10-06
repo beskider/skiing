@@ -15,7 +15,7 @@ export const ResortsList = () => {
 
   useEffect( () => {
     setSearchResults(resorts)
-  }, [ isLoading ])
+  }, [ isLoading, resorts ])
 
   const handleSearchChange = e => {
     const searchText = e.target.value

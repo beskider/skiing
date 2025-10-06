@@ -5,8 +5,6 @@ export const StyledNavigationSearchButton = styled.div`
   display: flex;
   align-items: center;
   border-radius: 2rem;  
-  display: flex;
-  align-items: center;  
   padding: 0.3rem 1rem;
   margin-bottom: 0.5rem;
   width: ${({ $isOpen }) => $isOpen ? '19rem': '4rem' };
@@ -34,6 +32,7 @@ export const NavigationSearchButtonWithIcon = styled.button`
 export const NavigationSearchInput = styled.input`
   border: none;
   height: 2rem;
+  width: 90%;
   background: transparent;
   color: ${({ theme }) => theme.color.white };
   outline: none;

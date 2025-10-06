@@ -25,7 +25,7 @@ export const Resort = () => {
 
   useEffect( () => {
     setResort(findResort(name))
-  }, [])
+  }, [findResort, name])
 
   if (!resort) return <h3>No data</h3>;
 
