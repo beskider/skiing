@@ -2,7 +2,7 @@ import { Button } from "components/atoms/Button/Button";
 import { Wrapper, StyledResortList, StyledButtons, StyledLink } from "./ResortsList.styles";
 import { Title } from "components/atoms/Title/Title";
 import { ResortsListItem } from "components/molecules/ResortsListItem/ResortsListItem";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ResortContext } from "providers/ResortsProvider";
 import { FormFieldInput } from 'components/molecules/FormFieldInput/FormFieldInput';
 import { FaSearch } from "react-icons/fa"
@@ -11,7 +11,11 @@ export const ResortsList = () => {
   const { isLoading, resorts, error } = useContext(ResortContext);
 
   const [ inputSearch, setInputSerach ] = useState('')
-  const [ searchedResorts, setSearchedResorts ] = useState(resorts)
+  const [ searchedResorts, setSearchedResorts ] = useState([])
+
+  useEffect( () => {
+    setSearchedResorts(resorts)
+  }, [ isLoading ])
 
   const handleSearchChange = e => {
     const searchText = e.target.value
@@ -28,7 +32,6 @@ export const ResortsList = () => {
       )
     setSearchedResorts(searchedResorts)
   }
-
 
   const renderResorts = () => {
     if ( error ) return <h2>{error}</h2> 
@@ -52,7 +55,7 @@ export const ResortsList = () => {
       <FormFieldInput
         value={inputSearch}
         onChange={handleSearchChange}
-        placeholder="Szukaj..."
+        placeholder="Wpisz nazwę lub miejscowość..."
         icon={<FaSearch />}   
       />
       { renderResorts() }

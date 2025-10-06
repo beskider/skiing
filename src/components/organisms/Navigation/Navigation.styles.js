@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Wrapper = styled.nav`
@@ -36,6 +36,4 @@ export const StyledNavLink = styled(NavLink)`
   }
 `;
 
-
-
-
+export const StyledLink = styled(Link)``
