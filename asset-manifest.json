@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/skiing/static/css/main.b5fbd5c6.css",
-    "main.js": "/skiing/static/js/main.06019732.js",
+    "main.js": "/skiing/static/js/main.9888b79a.js",
     "static/media/bpn.jpg": "/skiing/static/media/bpn.dacd6e3f00967286a0e0.jpg",
     "static/media/indoor_slope.jpg": "/skiing/static/media/indoor_slope.f8fc5517b917b13792d0.jpg",
     "static/media/skiing.jpg": "/skiing/static/media/skiing.30e78c8fcec87af577e7.jpg",
@@ -15,10 +15,10 @@
     "static/media/calendar-icon.svg": "/skiing/static/media/calendar-icon.575693c12b495c980e0891bf5b6ae5cb.svg",
     "index.html": "/skiing/index.html",
     "main.b5fbd5c6.css.map": "/skiing/static/css/main.b5fbd5c6.css.map",
-    "main.06019732.js.map": "/skiing/static/js/main.06019732.js.map"
+    "main.9888b79a.js.map": "/skiing/static/js/main.9888b79a.js.map"
   },
   "entrypoints": [
     "static/css/main.b5fbd5c6.css",
-    "static/js/main.06019732.js"
+    "static/js/main.9888b79a.js"
   ]
 }
