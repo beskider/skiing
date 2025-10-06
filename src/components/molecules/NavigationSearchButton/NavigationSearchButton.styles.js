@@ -11,6 +11,7 @@ export const StyledNavigationSearchButton = styled.div`
   margin-bottom: 0.5rem;
   width: ${({ $isOpen }) => $isOpen ? '19rem': '4rem' };
   transition: width 0.4s ease-in-out;
+  position: relative;
  `
 
 export const NavigationSearchButtonWithIcon = styled.button`

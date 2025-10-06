@@ -67,9 +67,7 @@ export const Resort = () => {
           </TrailsBar>
           <h2>Contact</h2>   
           <p><strong>{resort?.name}</strong></p>
-          <p>{resort?.country === 'Poland' || resort?.country}</p>
-          
-
+          <p>{resort?.country === 'Poland' || resort?.country}</p>  
           <ResortInfoEntry>
             <FontAwesomeIcon icon={faAddressCard} />
             <span>{resort?.address}</span>

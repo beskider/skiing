@@ -11,10 +11,10 @@ export const ResortsList = () => {
   const { isLoading, resorts, error } = useContext(ResortContext);
 
   const [ inputSearch, setInputSerach ] = useState('')
-  const [ searchedResorts, setSearchedResorts ] = useState([])
+  const [ searchResults, setSearchResults ] = useState([])
 
   useEffect( () => {
-    setSearchedResorts(resorts)
+    setSearchResults(resorts)
   }, [ isLoading ])
 
   const handleSearchChange = e => {
@@ -30,16 +30,16 @@ export const ResortsList = () => {
             .place.toLowerCase()
             .includes(searchText.toLowerCase())
       )
-    setSearchedResorts(searchedResorts)
+    setSearchResults(searchedResorts)
   }
 
   const renderResorts = () => {
     if ( error ) return <h2>{error}</h2> 
     if ( isLoading ) return <h2>Loading...</h2>
-    if ( !searchedResorts.length ) return <h2>No resorts</h2>
+    if ( !searchResults.length ) return <h2>No resorts</h2>
     return (      
       <StyledResortList>
-        { searchedResorts.map( resort => (
+        { searchResults.map( resort => (
             <ResortsListItem 
               key={resort.id}
               resort={resort} 

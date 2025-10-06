@@ -1,5 +1,5 @@
 import { Wrapper, StyledNavLink } from "./Navigation.styles"
-import { NavigationSearchButton } from 'components/molecules/NavigationSearchutton/NavigationSearchButton';
+import { NavigationSearchButton } from 'components/molecules/NavigationSearchButton/NavigationSearchButton';
 
 export const Navigation = () => {
   return (
