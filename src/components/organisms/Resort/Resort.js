@@ -20,7 +20,7 @@ export const Resort = () => {
 
   const { name } = useParams()
   const { findResort } = useContext(ResortContext)
-    
+   
   const [ resort, setResort ] = useState({});
 
   useEffect( () => {
@@ -30,7 +30,7 @@ export const Resort = () => {
   if (!resort) return <h3>No data</h3>;
 
   return (   
-    <Wrapper>      
+    <Wrapper>   
       <HeaderWrapper>
         <Logo>
           <img src={process.env.PUBLIC_URL + `/images/resorts/${resort?.shortname}-logo.png`} alt="Resort logo" />
@@ -145,7 +145,7 @@ export const Resort = () => {
 
 
 
-
+  
     </Wrapper>     
   )
 }

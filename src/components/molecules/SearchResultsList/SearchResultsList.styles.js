@@ -9,7 +9,7 @@ export const StyledSearchResultsList = styled.div`
   background-color: ${({ theme }) => theme.color.white };
   max-height: 20rem;
   overflow-y: auto;
-  z-index: 5;
+  z-index: 500;
   padding: 0.2rem 1rem;
   p {
     cursor: pointer;
