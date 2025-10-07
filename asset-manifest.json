@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/skiing/static/css/main.b5fbd5c6.css",
-    "main.js": "/skiing/static/js/main.ba406074.js",
+    "main.js": "/skiing/static/js/main.ecad6227.js",
     "static/media/bpn.jpg": "/skiing/static/media/bpn.dacd6e3f00967286a0e0.jpg",
     "static/media/indoor_slope.jpg": "/skiing/static/media/indoor_slope.f8fc5517b917b13792d0.jpg",
     "static/media/skiing.jpg": "/skiing/static/media/skiing.30e78c8fcec87af577e7.jpg",
     "static/media/slovakia_news.jpg": "/skiing/static/media/slovakia_news.cd9babd9ec52a419c79a.jpg",
     "static/media/color-palette-icon.svg": "/skiing/static/media/color-palette-icon.a4d3966ddd334b316075eec221670aac.svg",
-    "static/media/cable-car-icon.svg": "/skiing/static/media/cable-car-icon.cd351a612ff197a2b3f4654895ce6612.svg",
-    "static/media/person-skiing.svg": "/skiing/static/media/person-skiing.548ff32c429ed4f62fea98e5c61a6a24.svg",
-    "static/media/delete-icon.svg": "/skiing/static/media/delete-icon.eb91a3dbcfc24ced730cb5516f2a8170.svg",
-    "static/media/button-icon.svg": "/skiing/static/media/button-icon.d0b19845d0b9f387afe6147a0d6d4fba.svg",
-    "static/media/chairs-icon.svg": "/skiing/static/media/chairs-icon.7fd2d0ccf52d15f37a00b93ba714f618.svg",
+    "static/media/cable-car-icon.svg": "/skiing/static/media/cable-car-icon.05d8af65f927c25b6168b4e9a0487d93.svg",
+    "static/media/person-skiing.svg": "/skiing/static/media/person-skiing.b2cd3117bed9261cd05de6777a3f6919.svg",
+    "static/media/delete-icon.svg": "/skiing/static/media/delete-icon.f6fff8e15e2693ecaf508ba22e6907ab.svg",
+    "static/media/button-icon.svg": "/skiing/static/media/button-icon.189c9cd7b5f2759934294ea53f86a923.svg",
+    "static/media/chairs-icon.svg": "/skiing/static/media/chairs-icon.22e7bd25c352d012df13ced81f0d0e92.svg",
     "static/media/calendar-icon.svg": "/skiing/static/media/calendar-icon.575693c12b495c980e0891bf5b6ae5cb.svg",
     "index.html": "/skiing/index.html",
     "main.b5fbd5c6.css.map": "/skiing/static/css/main.b5fbd5c6.css.map",
-    "main.ba406074.js.map": "/skiing/static/js/main.ba406074.js.map"
+    "main.ecad6227.js.map": "/skiing/static/js/main.ecad6227.js.map"
   },
   "entrypoints": [
     "static/css/main.b5fbd5c6.css",
-    "static/js/main.ba406074.js"
+    "static/js/main.ecad6227.js"
   ]
 }
