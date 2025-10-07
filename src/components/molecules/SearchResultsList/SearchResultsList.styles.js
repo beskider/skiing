@@ -4,7 +4,6 @@ export const StyledSearchResultsList = styled.div`
   position: absolute;
   top: 3.5rem;
   left: 0;  
-  width: 100%;  
   line-height: 1.5rem;
   background-color: ${({ theme }) => theme.color.blue };
   max-height: 20rem;
@@ -13,13 +12,17 @@ export const StyledSearchResultsList = styled.div`
   padding: 0.2rem 1rem;
   p {
     line-height: 200%;
-    font-weight: 600;
+    font-weight: 300;
+    b {
+      font-weight: 600;
+      letter-spacing: 0.5px;   
     }
     a {
     text-decoration: none;
     color: ${({ theme }) => theme.color.white };
     &:hover {
       color: ${({ theme }) => theme.color.lightBlue };
-    } 
-  }
+    }
+    }
+  } 
 `

@@ -53,6 +53,7 @@ export const ResortsList = () => {
     <Wrapper>
       <Title>Ski resorts</Title>     
       <FormFieldInput
+        type="search"
         value={inputSearch}
         onChange={handleSearchChange}
         placeholder="Wpisz nazwę lub miejscowość..."

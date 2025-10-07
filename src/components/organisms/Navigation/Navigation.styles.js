@@ -20,6 +20,10 @@ export const StyledNavLink = styled(NavLink)`
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
+  &:hover:not(.active) {    
+    transform: scale(1.25) rotate(-10deg);
+	  transition-duration: 0.5s;    
+  }
   &::after {
     content: '';
     opacity: 0;

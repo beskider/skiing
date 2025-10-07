@@ -20,6 +20,10 @@ export const NavigationSearchButtonWithIcon = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  &:hover {    
+    transform: scale(1.45) rotate(-10deg);
+	  transition-duration: 0.5s;    
+  }
   svg {    
     width: 75%;
     height: 75%;    
@@ -43,4 +47,11 @@ export const NavigationSearchInput = styled.input`
     color: ${({ theme }) => theme.color.white };
     opacity: 0.8;
   }  
+  &::-webkit-search-cancel-button{
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    border-radius:10px;
+    background: white;
+  }
 `

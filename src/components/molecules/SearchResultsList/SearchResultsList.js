@@ -10,7 +10,12 @@ export const SearchResultsList = ({ results, closeSearch }) => {
       { results.map( (result, id) => {
           return (
             <p key={id}>
-              <Link  to={`/resort/${result.name}`} onClick={() => handleClickLink()}>{result.name}</Link>
+              <Link
+                to={`/resort/${result.name}`} 
+                onClick={() => handleClickLink()}
+              >
+                <b>{result.name}</b> | {result.place}
+              </Link>
             </p>
           )
       })}   
