@@ -6,6 +6,7 @@ export const Navigation = () => {
     <Wrapper>
       <StyledNavLink to="/map">Map</StyledNavLink>
       <StyledNavLink to="/resorts">Resorts</StyledNavLink>
+      <StyledNavLink to="/webcams">Webcams</StyledNavLink>
       <NavigationSearchButton />     
     </Wrapper>
   )

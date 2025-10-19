@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   max-width: 800px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);    
   margin: 10px auto;
-  `;
+`;
 
 export const StyledResortList = styled.ul`
   list-style: none;

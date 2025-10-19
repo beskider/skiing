@@ -7,7 +7,8 @@ export const theme = {
     mediumGrey: '#e7e7e7',
     lightGrey: '#f7f7f7',
     white: '#fefefe',
-    black: '#4a4a4a',    
+    black: '#4a4a4a',
+    realBlack: '#000000'
   },
   trailColor: {
     green: '#6acb21',

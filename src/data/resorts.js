@@ -25,7 +25,17 @@ export const resorts = [
       Na odwiedzających czekają niezwykle ciekawe zajęcia grupowe oraz szkolenia, możliwość organizacji imprez okolicznościowych takich jak urodziny, a także imprez firmowych. W Ośrodku Jurasówka każdy znajdzie coś dla siebie.          
       Dzięki wprowadzeniu oferty letniej, w ośrodku pojawiła się cała masa nowych atrakcji takich jak: rozbudowana część wodna, quady z wydzielonym torem quadowym, specjalistyczne sterowane modele, którymi można zarówno pływać jak i jeździć oraz długa tyrolka z zachwycającymi widokami.
       Wypożyczalnia sprzętu, serwis, szkoła narciarska, bar, a także parking nie znajdują się przy dolnej, a przy górnej stacji. To stąd wiodą dwie trasy – średnio-trudna, 350-metrowa „jedynka” oraz nieco łagodniejsza, spadająca malowniczym łukiem „dwójka”. Stok szkoleniowy i nieco ponad stumetrowy orczyk odnajdziemy w pobliżu górnej stacji.
-    `
+    `,
+    webcams: [
+      {
+        type: 'iframe',
+        code: `<iframe style="width: 100%; border: none;" src="//streaming.km-net.pl/hls/Jurasowka2" width="960" height="720" allowfullscreen="allowfullscreen">Loading the player ...</iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe style="width: 100%; border: none;" src="//streaming.km-net.pl/hls/Jurasowka1" width="960" height="720" allowfullscreen="allowfullscreen">Loading the player ...</iframe>`
+      },
+    ]
   },
   {
     id: '2',
@@ -54,7 +64,17 @@ export const resorts = [
       Najmłodsi mają do dyspozycji specjalną trasę zjazdową  przy górnej stacji wyciągów. Można tutaj spotkać również tych starszych; początkujących narciarzy. W górnej części stoku znajduje się także trasa do zjazdu pontonami (tubing) oraz karuzela z pontonami.
       Przy dolnej i górnej stacji wyciągów znajdują się wypożyczalnie sprzętu sportowego. Można tutaj także skorzystać z usług serwisu narciarskiego. Początkujący narciarze czy snowboardziści mogą skorzystać ze szkółek narciarskich bądź z usług indywidualnych instruktorów.
       Gogołów to wieś w Polsce położona w województwie podkarpackim, liczy około 1500 mieszkańców. Leży nad potokiem Gogołówka. Przechodzi tędy droga Frysztak-Klecie. W latach 1954–1961 wieś należała i była siedzibą władz gromady Gogołów, po jej zniesieniu w gromadzie Glinik Górny. W latach 1975–1998 miejscowość administracyjnie należała do województwa rzeszowskiego.
-    `
+    `,
+    webcams: [
+      {
+        type: 'iframe',
+        code: `<iframe style="width: 283px; height: 300px;" src="//player.webcamera.pl/index.php?id=gogolow_cam_f20d7a" width="300" height="150" allowfullscreen="allowfullscreen"></iframe>`,
+      },
+      {
+        type: 'iframe',
+        code: `<iframe style="width: 283px; height: 300px;" src="//player.webcamera.pl/index.php?id=gogolow_cam_6a68c6" width="300" height="150" allowfullscreen="allowfullscreen"></iframe>`
+      },
+    ]
   },
   {
     id: '3',
@@ -85,7 +105,25 @@ export const resorts = [
       Ośrodek Sportów Zimowych KiczeraSki w Puławach Górnych to ośrodek narciarski położony na północnym zboczu Kiczery (640 m n.p.m.) w Paśmie Bukowicy w Beskidzie Niskim na terenie powiatu krośnieńskiego w gminie Rymanów.
       W skład kompleksu wchodzą wyciągi: 2 - osobowy wyciąg krzesełkowy o długości 900 m i przewyższeniu 170 m oraz przepustowości 1200 osób na godzinę, czas przejazdu – 5 min 40 sek. Wyciąg talerzykowy o długości 420 m i przewyższeniu 90 m oraz przepustowości 450 osób na godzinę, obsługujący również snowpark. Tzw. wyrwirączka „Babylift” o długości 120 m i przewyższeniu 15 m oraz przepustowości 200 osób na godzinę.
       Do dyspozycji fanów białego szaleństwa oddany jest wyciąg krzesełkowy oraz talerzykowy. Trasy zjazdowe o zróżnicowanym poziomie zaawansowania, trasa skiturowa, snowpark, restauracja Amadeus, wypożyczalnia oraz Ski szkółka.
-    `
+    `,
+    webcams: [
+      {
+        type: 'iframe',
+        code: `<iframe style="border: 0;" src="//player.webcamera.pl/kiczeraski_cam_2b0ef4" width="800" height="450" allowfullscreen="allowfullscreen"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe style="border: 0;" src="//player.webcamera.pl/kiczeraski_cam_82a692" width="800" height="450" allowfullscreen="allowfullscreen"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe style="border: 0;" src="//player.webcamera.pl/kiczeraski_cam_0b1dc1" width="800" height="450" allowfullscreen="allowfullscreen"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe style="border: 0;" src="//player.webcamera.pl/kiczeraski_cam_73be2c" width="800" height="450" allowfullscreen="allowfullscreen"></iframe>`
+      },
+    ]
   },
   {
     id: '4',
@@ -116,7 +154,21 @@ export const resorts = [
       Ośrodek narciarski i rowerowy Słotwiny Arena w Krynicy położony w Słotwinach, dzielnicy Krynicy-Zdroju, w Beskidzie Sądeckim na południowo-wschodnim zboczu Drabiakówki (ok. 896 m n.p.m). Drabiakówka znajduje się na bocznym grzbiecie Pasma Jaworzyny, który w tym miejscu opadając w kierunku Przełęczy Krzyżowej (ok. 770 m) oddziela Słotwiny od osiedla Czarny Potok. Tuż obok Słotwiny Arena (na północny zachód) znajduje się Kompleks Narciarski Słotwiny w Krynicy, również na zboczu tego samego grzbietu.
       Latem działa Bike Park z 4 trasami rowerowymi oraz Wieża widokowa ze ścieżką w koronach drzew. 
       Obiekt oferuje taras, bezpłatny prywatny parking, bar oraz dojazd do budynku na nartach. Odległość ważnych miejsc od obiektu: Muzeum Nikifora – 3,4 km. Do dyspozycji Gości przygotowano takie udogodnienia, jak restauracja, obsługa pokoju, bankomat. Odległość ważnych miejsc od obiektu: PKP Krynica Zdrój – 4,5 km.
-    `
+    `,
+    webcams: [
+      {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/slotwinyarena" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/slotwinyarena-2" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/slotwiny-arena-slotwinka" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      },
+    ]
   },
   {
     id: '5',
@@ -148,7 +200,21 @@ export const resorts = [
       Ośrodek powstał ponad 40 lat temu w miejscu, znanym w okolicy z najdłużej utrzymującego się śniegu – zwanym kiedyś Śnieżną Górą, a obecnie Śnieżnicą. To właśnie tutaj, z wielkiej pasji do nart, powstał ośrodek narciarski, który od kilku lat latem, gdy stopnieją śniegi, przekształca się w Bike Park.
       Wspaniałe imprezy plenerowe, zawody ogólnopolskie, bogata oferta zimowa i letnia oraz serce, które wkładamy w codzienną pracę sprawiają, że Kasina stała się symbolem świetnej, sportowej zabawy na świeżym powietrzu niezależnie od wieku, kondycji fizycznej oraz pory roku.
       To jedno z pięciu wyjątkowych miejsc na turystycznej mapie Polski, obok Czarnego Gronia, Kurzej Góry, Skolnity i Słotwiny Arena, należących do Grupy Pingwina.
-    `
+    `,
+    webcams: [
+      {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/kasina" width="400" height="225" border="0" frameborder="0" scrolling="no"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/kasina-2" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/kasinaski-stacja-narciarska" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`,
+      }
+    ]
   },
   {
     id: '6',
@@ -180,7 +246,17 @@ export const resorts = [
       W skład kompleksu wchodzą: 4-osobowa kolej krzesełkowa firmy Doppelmayr Garaventa Group z taśmą rozpędową, o długości 1000 m i przepustowości 2200 osób na godzinę i przewyższeniu – 150 m, czas wjazdu – 6 minut, wyciąg talerzykowy o długości 120 m, przewyższeniu 30 m i przepustowości 300 osób na godzinę.
       Stacja narciarska Witów Ski znajduje się w niewielkiej odległości od takich atrakcji turystycznych jak: Dolina Chochołowska, Dolina Kościeliska, baseny termalne w Chochołowie i w Oravicach (Meander Park).
       Witowianka to restauracja samoobsługowa dla osób, które chcą zjeść przede wszystkim szybko i smacznie. Restauracja jest położona zaraz obok dolnej stacji Witów Ski. 
-    `
+    `,
+    webcams: [
+      {
+        type: 'iframe',
+        code: `<iframe width="600" height="300" src="//player.webcamera.pl/skywind_cam_0e8c2a" allowfullscreen style="border:0"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe width="600" height="300" src="//player.webcamera.pl/skywind_cam_3e61cc" allowfullscreen style="border:0"></iframe>`
+      }
+    ]
   },
   {
     id: '7',
@@ -211,7 +287,13 @@ export const resorts = [
       Ośrodek położony jest w Jaworkach jednym z najpiękniejszych zakątków Polski, na styku dwóch pasm górskich – pasma Radziejowej i Małych Pienin. Położenie to, powoduje, że panuje tutaj wyjątkowy, służący zdrowiu mikroklimat oraz niezwykłe bogactwo form krajobrazu.
       Atrakcje regionu: Klub Muzyczna Owczarnia, Architektura świecka i sakralna, Stadnina koni Bukowinki,  Rezerwat przyrody Wąwóz Homole, Rezerwat Przyrody Zaskalskie – Bodnarówka, Rezerwat Przyrody Biała Woda, Rezerwat Przyrody Wysokie Skałki, Stadnina koni Rajd, kuligi zaprzęgami konnymi.
       Arena Narciarska o łącznej powierzchni 27 ha graniczy od wschodu z rezerwatem Zaskalskie Bodnarówka, a od zachodu z rezerwatem Wąwóz Homole. Wyciągi położone są na północnym stoku Bukowinek w dolinie potoku Skalskie. W ośrodku narciarskim do dyspozycji narciarzy i snowboardzistów funkcjonują 2 wyciągi orczykowe oraz kolej linowa 2-osobowa.
-    `
+    `,
+    webcams: [
+      {
+        type: 'iframe',
+        code: `<iframe src="https://arenanarciarska.aztv.pl/arenanarciarska.php?width=680&amp;height=385" width="680" height="385" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style="border:0;" scrolling="no"></iframe>`
+      }
+    ]
   },
   {
     id: '8',
@@ -241,7 +323,17 @@ export const resorts = [
     description: `
       Wyciąg krzesełkowy Palenica. Trasa wyciągu pokonuje odległość 777 metrów, a różnica wysokości między dolną a górną stacją kolejki to 263 metry. Kolejka porusza się po linie wspieranej przez dziesięć podpór trasowych. Wyciąg składa się z 54 krzesełek mieszczących jednocześnie 4 osoby. Czas przejazdu w jedną stronę wynosi od 4 do 5 minut, a zdolność przewozowa kolejki to aż 2200 osoby na godzinę. 
       Palenica jest także świetnym punktem dla wycieczek pieszych. Prowadzi stąd m.in. szlak turystyczny na najwyższy szczyt Pienin – Wysoką. Trasa biegnie przez widokowy Wysoki Wierch, dalej Durbaszkę na Wysoką, skąd można zejść do Jaworek przez Wąwóz Homole lub Przełęcz Rozdziela.
-    `
+    `,
+    webcams: [
+      {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/szczawnica-palenica" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      },
+            {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/palenica-szafranowka" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      }
+    ]
   },
   {
     id: '9',
@@ -298,9 +390,38 @@ export const resorts = [
       Stacja narciarska położona jest w Beskidach, 12 km od Piwnicznej - Zdroju. Unikalne warunki narciarskie stacja zawdzięcza specyficznym warunkom klimatycznym - śnieg utrzymuje się tutaj długo (od listopada do kwietnia), a temperatura jest średnio o 4 stopnie niższa, niż w pobliskich miejscowościach.
       To jedna z największych rodzinnych stacji  narciarskich w Polsce i jest zaliczana do czołówki najdynamiczniej rozwijających się ośrodków narciarskich w kraju. Trasy zjazdowe o różnym stopniu trudności, z czego część jest oświetlona i umożliwia szusowanie do późnych godzin wieczornych.
       Narciarze i snowboardziści mogą korzystać z wyciągów krzesełkowych oraz orczykowych. Bogata i różnorodna infrastruktura umożliwia aktywny i ciekawy wypoczynek rodzinom. Na terenie stacji narciarskiej znajduje się wypożyczalnia, serwis oraz przechowalnia sprzętu narciarskiego. Dla początkujących adeptów narciarstwa i snowboardu oferowane są kursy nauki jazdy na nartach w licencjonowanej szkole narciarskiej. 
-    `
-  },
-  {
+    `,
+    webcams: [
+      {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/wierchomla" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/wierchomla3" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/wierchomla4" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/wierchomla-stonoga" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe src="https://wierchomla-szalas.webcamera.pl/" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe src="https://wierchomla-toczek-gorna-stacja.webcamera.pl/" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe src="https://wierchomla-toczek-dolna-stacja.webcamera.pl/" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      }
+    ]
+  },  {
     id: '11',
     name: 'Sport Arena Myślenice',
     country: 'Poland',
@@ -331,6 +452,28 @@ export const resorts = [
       szkoła narciarska.
       Karczma na szczycie góry Chełm, może pomieścić 120 osób, a wraz z podcieniami – 300 osób.
       Na szczycie góry Chełm znajduje się wieża widokowa. Jest jedną z największych atrakcji atrakcją ośrodka. Z jej platformy można obserwować panoramę Myślenic, a w pogodny dzień także Beskidów i Gorców. W sprzyjających warunkach dojrzeć Tatry.
-    `
+    `,
+    webcams: [
+      {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/mysleniceski2" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/mysleniceski" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/mysleniceski3" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/mysleniceski5" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      },
+      {
+        type: 'iframe',
+        code: `<iframe src="https://imageserver.webcamera.pl/umiesc/mysleniceski4" width="800" height="450" border="0" frameborder="0" scrolling="no"></iframe>`
+      }
+    ]
   },
 ]

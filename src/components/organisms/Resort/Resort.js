@@ -19,7 +19,7 @@ import { faAddressCard, faPhoneFlip, faGlobe, faMapPin } from '@fortawesome/free
 export const Resort = () => {
 
   const { name } = useParams()
-  const { findResort } = useContext(ResortContext)
+  const { findResortByName: findResort } = useContext(ResortContext)
    
   const [ resort, setResort ] = useState({});
 

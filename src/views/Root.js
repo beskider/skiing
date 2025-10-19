@@ -10,6 +10,7 @@ import { AddResort } from "components/organisms/AddResort/AddResort";
 import { ResortsProvider } from "providers/ResortsProvider";
 import { NewsProvider } from "providers/NewsProvider";
 import { Resort } from "components/organisms/Resort/Resort";
+import { Webcams } from 'components/organisms/Webcams/Webcams';
 
 export const Root = () => {
   return (
@@ -25,6 +26,7 @@ export const Root = () => {
                 <Route path="/resorts" element={<ResortsList/>}/>
                 <Route path="/resort/add" element={<AddResort/>}/>
                 <Route path="/resort/:name" element={<Resort/>}/>
+                <Route path="/webcams" element={<Webcams/>}/>
               </Routes>
             </MainTemplate>
           </NewsProvider>

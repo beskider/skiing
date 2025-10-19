@@ -5,7 +5,9 @@ import { useState, useEffect } from "react";
 
 export const ResortContext = createContext({
   resorts: [],
-  findResort: () => {},
+  resortsWithWebcams: [],
+  findResortByName: () => {},
+  findResortByTextFragmentInNameOrPlace: () => {},
   addResort: () => {},
   deleteResort: () => {},
   isLoading: true,
@@ -27,6 +29,7 @@ const mockResortsAPI = (timeout) => {
 export const ResortsProvider = ({ children }) => {
 
   const [ resorts, setResorts ] = useState([]);
+  const [ resortsWithWebcams, setResortsWithWebcams ] = useState([]);
   const [ isLoading, setIsLoading ] = useState(true);
   const [ error, setError ] = useState('');
 
@@ -36,6 +39,7 @@ export const ResortsProvider = ({ children }) => {
       .then((data) => {
         setIsLoading(false);
         setResorts(data);
+        setResortsWithWebcams(getResortsWithWebcams(data))
       })
       .catch((err) => { 
         setError(err.message);
@@ -43,10 +47,22 @@ export const ResortsProvider = ({ children }) => {
       })
   }, [])
 
-  const findResort = name => {
+  const findResortByName = name => {
     if (!name) return null;
     return resorts.find( resort => resort.name.toLowerCase() === name.toLowerCase())
   }
+
+  const findResortByTextFragmentInNameOrPlace = text => {
+    return resorts.filter( resort => 
+              resort
+                .name.toLowerCase()
+                .includes(text.toLowerCase())
+              ||
+              resort
+                .place.toLowerCase()
+                .includes(text.toLowerCase())
+          )
+  }  
 
   const addResort = (data) => {        
     setResorts([ data, ...resorts ])
@@ -57,11 +73,17 @@ export const ResortsProvider = ({ children }) => {
     setResorts(filteredResorts);
   }
 
+  const getResortsWithWebcams = resorts => {
+    return resorts.filter(resort => resort.hasOwnProperty('webcams'))
+  } 
+
   return (
     <ResortContext.Provider 
       value={{
         resorts,
-        findResort,
+        resortsWithWebcams,
+        findResortByName,
+        findResortByTextFragmentInNameOrPlace,
         addResort,
         deleteResort,
         isLoading,

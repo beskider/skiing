@@ -8,7 +8,7 @@ import { FormFieldInput } from 'components/molecules/FormFieldInput/FormFieldInp
 import { FaSearch } from "react-icons/fa"
 export const ResortsList = () => {
 
-  const { isLoading, resorts, error } = useContext(ResortContext);
+  const { isLoading, resorts, error, findResortByTextFragmentInNameOrPlace } = useContext(ResortContext);
 
   const [ inputSearch, setInputSerach ] = useState('')
   const [ searchResults, setSearchResults ] = useState([])
@@ -20,16 +20,7 @@ export const ResortsList = () => {
   const handleSearchChange = e => {
     const searchText = e.target.value
     setInputSerach(searchText)
-    const searchedResorts = 
-      resorts.filter( resort => 
-          resort
-            .name.toLowerCase()
-            .includes(searchText.toLowerCase())
-          ||
-          resort
-            .place.toLowerCase()
-            .includes(searchText.toLowerCase())
-      )
+    const searchedResorts = findResortByTextFragmentInNameOrPlace(searchText)
     setSearchResults(searchedResorts)
   }
 
@@ -56,7 +47,7 @@ export const ResortsList = () => {
         type="search"
         value={inputSearch}
         onChange={handleSearchChange}
-        placeholder="Wpisz nazwę lub miejscowość..."
+        placeholder="enter the name or place..."
         icon={<FaSearch />}   
       />
       { renderResorts() }
