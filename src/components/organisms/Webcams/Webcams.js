@@ -1,4 +1,4 @@
-import { Wrapper, WebcamsTilesContainer, MiniWebcamTile } from './Webcams.styles';
+import { Wrapper, WebcamsTilesContainer } from './Webcams.styles';
 import { useState, useContext, useEffect } from 'react';
 import { ResortContext } from 'providers/ResortsProvider';
 
@@ -6,7 +6,7 @@ import { Title } from 'components/atoms/Title/Title';
 import { FormFieldInput } from 'components/molecules/FormFieldInput/FormFieldInput';
 
 import { FaSearch } from "react-icons/fa"
-import { Link } from 'react-router-dom';
+import { WebcamTile } from 'components/molecules/WebcamTile/WebcamTile';
 
 export const Webcams = () => {
 
@@ -32,12 +32,6 @@ export const Webcams = () => {
     return element.outerHTML
   }
 
-  const getSrcAttribFromHtmlElement = element => {
-    let parser = new DOMParser();
-    let parsedResult = parser.parseFromString(element, 'text/html');
-    return parsedResult.documentElement.getElementsByTagName('iframe')[0].getAttribute('src')
-  }
-
   const handleSearchChange = e => {
     const searchText = e.target.value
     setInputSerach(searchText)
@@ -57,27 +51,15 @@ export const Webcams = () => {
       <WebcamsTilesContainer>
         { searchResults.map( resort => {
            let iframes = []            
-           resort.webcams.map( webcam => {
+           resort.webcams.forEach( webcam => {
             let cleanCode = removePropsFromIframe(webcam.code)
-            return (
-              iframes.push(cleanCode)                     
-            )
+            iframes.push(cleanCode)                     
            })
-           return iframes.map(iframe => (        
-            <MiniWebcamTile onClick={() => {
-              window.location.href = getSrcAttribFromHtmlElement(iframe);
-            }}
-            >        
-              <Link to={`/resort/${resort.name}`}>
-                <p><strong>{resort.name}</strong></p>
-              </Link>
-              <p>{resort.place}</p>
-              <div 
-                onClick={() => {window.location.href = getSrcAttribFromHtmlElement(iframe); }}
-                dangerouslySetInnerHTML={{__html: iframe}}>
-              </div>
-            </MiniWebcamTile>    
-           ));
+           return iframes.map(iframe => <WebcamTile 
+                                          iframeEl={iframe} 
+                                          resortName={resort.name} 
+                                          resortPlace={resort.place}
+                                        /> );
         })}
       </WebcamsTilesContainer>
     )    
