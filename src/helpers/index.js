@@ -25,6 +25,15 @@ export const countLifts = lifts => {
   }, 0  );
 }
 
+export const getMaxTypeOfLifts = lifts => {
+  if (!lifts) return null;
+  const listLifts = lifts.map(lift => lift.type )
+  if (listLifts.includes('cablecar')) return 'cablecar'
+  else if (listLifts.includes('chairs')) return 'chairs'
+  else if (listLifts.includes('button')) return 'button'
+  return null;
+}
+
 export const removeHttp = url => url && url.replace(/^https?:\/\//, '') 
 
 export const truncateStringCompleteWords = (str, maxLength) => {

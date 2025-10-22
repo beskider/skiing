@@ -1,39 +1,31 @@
 import { Icon } from "leaflet";
-import { MapContainer, TileLayer, useMap, useMapEvent, useMapEvents, ZoomControl} from "react-leaflet";
+import { MapContainer, TileLayer, useMap, Marker, Popup} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-// import towerIconImage from 'assets/icons/tower-icon.svg';
-import { resorts as resortsData } from "data/resorts";
-import { useState } from "react";
+import { getMaxTypeOfLifts } from 'helpers';
+
+import buttonIconImage from 'assets/icons/button-icon.svg';
+import cableCarIconImage from 'assets/icons/cable-car-icon.svg';
+import chairsIconImage from 'assets/icons/chairs-icon.svg';
+
+import { useState, useContext } from "react";
+import { ResortContext } from 'providers/ResortsProvider';
 
 import { MapWrapper } from "./Map.styles";
 import { MapButtons } from "components/molecules/MapButtons/MapButtons";
-
-
 
 let handleZoomIn = () => {}  
 let handleZoomOut = () => {}
 
 export const Map = () => {
-  
 
-
-  
-
-
-
+  const { resorts } = useContext(ResortContext);
 
   const MapControl = () => {  
     const map = useMap();
     handleZoomIn = () =>  map.zoomIn()
     handleZoomOut = () => map.zoomOut()    
   }
-  
-
-  // const towerIcon = new Icon({
-  //   iconUrl: towerIconImage,
-  //   iconSize: [48, 48]
-  // })
 
   const SetMapBounds = () => {
     const plBounds = [
@@ -48,9 +40,30 @@ export const Map = () => {
 
   const toggleMapColor = () => setColorMap(!colorMap)
 
-
-
+  const getLiftIcon = lifts => {
     
+    let icon = null;
+
+    switch(getMaxTypeOfLifts(lifts)) {
+      case 'cablecar':
+        icon = cableCarIconImage;
+        break;
+      case 'chairs':
+        icon = chairsIconImage;
+        break;
+      case 'button':
+        icon = buttonIconImage;
+        break;
+      default:
+        icon = buttonIconImage;
+    }
+
+    return new Icon({
+      iconUrl: icon,
+      iconSize: [24, 24]
+    })
+
+  }
    
   return (
     <MapWrapper $colorMap={colorMap}>
@@ -69,41 +82,29 @@ export const Map = () => {
           attribution='Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors & ODbL, &copy; <a href="https://www.opensnowmap.org/iframes/data.html">www.opensnowmap.org</a> <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
           url="https://tiles.opensnowmap.org/pistes/{z}/{x}/{y}.png"
         />
-        <SetMapBounds/>
-        <MapControl/>
-
-
-      
-
-
-        {/* { resortsData.map( (resort) => (
-          <Marker 
-            position={resort.geometry.coordinates}
-            icon={towerIcon} 
-            key={resort.properties.shortname}
-          >
-            <Popup>
-              <h2>{resort.properties.name}</h2>
-              <h4>{resort.properties.alt}+{resort.properties.height}m</h4> 
-              <p>{resort.properties.description}</p>
-              <small>{resort.properties.place}</small>
-            </Popup>
-          </Marker>
-        ))}      */}
-
-
-
         <MapButtons         
           zoomIn={handleZoomIn}
           zoomOut={handleZoomOut}
-          changeMapColorMode={toggleMapColor}
-        
+          changeMapColorMode={toggleMapColor}        
         />
+        <SetMapBounds/>
+        <MapControl/>
 
-
+        { resorts.map( (resort) => (
+          <Marker
+            position={[ resort.lat, resort.long ]}
+            icon={getLiftIcon(resort.lifts)} 
+            key={resort.id}
+          >
+            <Popup>
+              <h2>{resort.name}</h2>
+              <h4>{resort.alt}m</h4> 
+              <small>{resort.place}</small>
+            </Popup>
+          </Marker>
+        ))}      
 
       </MapContainer>
-
 
     </MapWrapper>
 
