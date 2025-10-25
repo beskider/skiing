@@ -6,6 +6,7 @@ export const FormWrapper=styled.div`
   padding-bottom: 20px;
   border-radius: 5px;
   width: 100%;
-  max-width: 500px;
+  max-width: 800px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
 `;

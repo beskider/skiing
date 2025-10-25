@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   padding: 0;  
   display: grid;
   grid-template-rows: 100px 1fr;
-  grid-template-columns: 7fr 3fr;
+  grid-template-columns: ${({ $showSidePanel }) => $showSidePanel ? '7fr 3fr' : '1fr auto'};
   background-color: ${({ theme }) => theme.color.lightGrey};      
 `;
 

@@ -1,5 +1,5 @@
 import { Icon } from "leaflet";
-import { MapContainer, TileLayer, useMap, Marker, Popup} from "react-leaflet";
+import { MapContainer, TileLayer, useMap, Marker, Popup, useMapEvents} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 import { getMaxTypeOfLifts } from 'helpers';
@@ -24,7 +24,7 @@ export const Map = () => {
   const MapControl = () => {  
     const map = useMap();
     handleZoomIn = () =>  map.zoomIn()
-    handleZoomOut = () => map.zoomOut()    
+    handleZoomOut = () => map.zoomOut() 
   }
 
   const SetMapBounds = () => {
@@ -43,7 +43,7 @@ export const Map = () => {
   const getLiftIcon = lifts => {
     
     let icon = null;
-
+    
     switch(getMaxTypeOfLifts(lifts)) {
       case 'cablecar':
         icon = cableCarIconImage;
@@ -65,6 +65,7 @@ export const Map = () => {
 
   }
    
+
   return (
     <MapWrapper $colorMap={colorMap}>
       <MapContainer

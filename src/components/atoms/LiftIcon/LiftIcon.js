@@ -12,6 +12,7 @@ export const LiftIcon = ({ liftType, no = 0 }) => {
   if ( no === 0 ) return null;
 
   const renderIcon = liftType => {
+
     switch (liftType) {
       case LIFT_TYPES.CABLECAR:
         return <CableCarIcon />;

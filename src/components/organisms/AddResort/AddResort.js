@@ -5,11 +5,14 @@ import { Title } from "components/atoms/Title/Title"
 import { FormWrapper } from "./AddResort.styles"
 import { FormFieldInput } from "components/molecules/FormFieldInput/FormFieldInput"
 
+import { FaMapMarkedAlt } from "react-icons/fa";
+
 import { v4 as uuidv4 } from 'uuid';
 import { Button } from "components/atoms/Button/Button";
 import { FormFieldSelect } from "components/molecules/FormFieldSelect/FormFieldSelect";
 import { ResortContext } from "providers/ResortsProvider";
 import { LIFT_TYPES, TRAIL_RATINGS } from "types/resort";
+import styled from 'styled-components'
 
 const initialResortFormData = {
   id: '',
@@ -17,18 +20,35 @@ const initialResortFormData = {
   country: '',
   place: '',
   lat: 0,
-  long: 0,  
+  long: 0, 
+  alt: 0, 
   lifts: [],  
   trailRatings: [],    
   bunnySlope: false,    
   www: '',
+  phone: '',
+  address: '',
+  maplink: '',
+  shortname: '',
+  description:  '',
+  webcams: []
 }
+
+export const GeoInputBlock = styled.div`
+  display: flex;
+  button {
+    margin: 2rem;
+  }
+` 
+export const InputBlock = styled.div`
+  width: 100%;
+`
 
 export const AddResort = () => {
 
   const [ formData, setFormData ] = useState(initialResortFormData)
   const { addResort } = useContext(ResortContext);
-  
+
   const navigate = useNavigate()
 
   const handleCheckboxChange = e => {
@@ -61,7 +81,12 @@ export const AddResort = () => {
     setFormData(initialResortFormData);    
     navigate('/');
   } 
-  
+
+  const handlePointOnMapButton = e => {
+    e.preventDefault()
+    console.log('open modal')
+  }
+
   return (
     <FormWrapper as="form" onSubmit={handleAddResort}>
       <Title>New ski resort</Title>
@@ -69,6 +94,7 @@ export const AddResort = () => {
         id="name"
         label="Name"
         name="name"
+        maxLength="30"
         value={formData.name}
         onChange={handleInputChange}
       />
@@ -76,6 +102,7 @@ export const AddResort = () => {
         id="country"
         label="Country"
         name="country"
+        maxLength="30"
         value={formData.country}
         onChange={handleInputChange}
       />
@@ -83,36 +110,46 @@ export const AddResort = () => {
         id="place"
         label="Place"
         name="place"
+        maxLength="30"
         value={formData.place}
         onChange={handleInputChange}
       />
+
+      <GeoInputBlock>
+        <Button onClick={handlePointOnMapButton} title="Point on map">
+          <FaMapMarkedAlt/>
+        </Button>
+        <InputBlock>
+          <FormFieldInput 
+            id="lat"
+            label="Latitude"
+            name="lat"
+            maxLength="10"
+            value={formData.lat}
+            onChange={handleInputChange}
+          />
+          <FormFieldInput
+            id="long"
+            label="Longitude"
+            name="long"
+            maxLength="10"
+            value={formData.long}
+            onChange={handleInputChange}
+          />
+        </InputBlock>
+      </GeoInputBlock>
       <FormFieldInput 
-        id="lat"
-        label="Latitude"
-        name="lat"
-        value={formData.lat}
-        onChange={handleInputChange}
-      />
-      <FormFieldInput 
-        id="long"
-        label="Longitude"
-        name="long"
-        value={formData.long}
-        onChange={handleInputChange}
-      />
-      <FormFieldInput 
-        id="liftCount"
-        type="number"
-        label="No of lifts"
-        name="liftCount"
-        value={formData.liftCount}
+        id="alt"
+        label="Altitude"
+        name="alt"
+        value={formData.alt}
         onChange={handleInputChange}
       />
       <FormFieldSelect 
-        id="liftTypes"
-        label="Lift types"
-        name="liftTypes"
-        value={formData.liftTypes}
+        id="lifts"
+        label="Lifts"
+        name="lifts"
+        value={formData.lifts}
         onChange={handleSelectChange}
         options={Object.values(LIFT_TYPES)}
         multiple
@@ -139,6 +176,48 @@ export const AddResort = () => {
         label="www"        
         name="www"
         value={formData.www}
+        onChange={handleInputChange}
+      />
+      <FormFieldInput 
+        id="phone"
+        label="phone"        
+        name="phone"
+        value={formData.phone}
+        onChange={handleInputChange}
+      />
+      <FormFieldInput 
+        id="address"
+        label="Address"        
+        name="address"
+        value={formData.address}
+        onChange={handleInputChange}
+      />
+      <FormFieldInput 
+        id="maplink"
+        label="Maplink"        
+        name="maplink"
+        value={formData.maplink}
+        onChange={handleInputChange}
+      />
+      <FormFieldInput 
+        id="shortname"
+        label="Short name"        
+        name="shortname"
+        value={formData.mapshortnamelink}
+        onChange={handleInputChange}
+      />
+      <FormFieldInput 
+        id="description"
+        label="Description"        
+        name="description"
+        value={formData.description}
+        onChange={handleInputChange}
+      />
+      <FormFieldInput 
+        id="webcams"
+        label="Webcams"        
+        name="webcams"
+        value={formData.webcams}
         onChange={handleInputChange}
       />
       <Button type="submit">Add</Button>

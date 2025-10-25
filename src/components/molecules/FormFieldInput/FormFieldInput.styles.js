@@ -4,6 +4,7 @@ export const StyledFormField = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-top: 0.5rem;
 `
 
 export const InputWrapper = styled.div`

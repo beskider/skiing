@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   grid-row: 2 / 3;
   grid-column: 2 / 3;
   margin: 20px 0;
+  position: relative;
   p { 
     line-height: 1.5;  
     text-align: justify;
@@ -12,6 +13,9 @@ export const Wrapper = styled.div`
 
 export const ArticleWrapper = styled.div`
   margin: 20px 5px;
+  &:first-of-type {
+    margin-top: 1.5rem; 
+  }
   &:not(:last-child)::after {
     content: '';
     display: block;
@@ -51,4 +55,23 @@ export const ContentWrapper = styled.div`
     width: 100%;
     height: auto;
   } 
+`
+
+export const ToggleNewsButton = styled.button`
+  position: absolute;
+  z-index: 600;
+  border: none;
+  top: ${({ $showNewsPanel }) => $showNewsPanel ? '0' : '2rem' };
+  transform: ${({ $showNewsPanel }) => $showNewsPanel ? 'none' : 'rotate(-90deg);' };
+  left: ${({ $showNewsPanel }) => $showNewsPanel ? '0' : 'none' };
+  right: ${({ $showNewsPanel }) => $showNewsPanel ? 'none' : '-0.5rem' };
+  transition: transform 0.5s ease-in-out;
+  padding: ${({ $showNewsPanel }) => $showNewsPanel ? '0' : '0.2rem 1rem' };
+  background: ${({ $showNewsPanel, theme }) => $showNewsPanel ? 'none' : theme.color.lightBlue  }; 
+  font-size: ${({ theme }) => theme.fontSize.large }; 
+  svg {
+    fill: ${({ theme }) => theme.color.lightBlue  };
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 `

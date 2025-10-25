@@ -13,10 +13,11 @@ export const FormFieldInput = ({
   placeholder,
   icon,
   type = "text",
+  ...props
 }) => {  
 
   const inputElement = type => {
-    const props = { id, label, name, value, onChange, type }
+    const propsS = { id, label, name, value, onChange, type }
     switch (type) {
       default:
       case 'text': 
@@ -24,10 +25,10 @@ export const FormFieldInput = ({
           icon ? (
               <InputWrapper>
                 { icon }
-                <InputForm type="text" data-testid={name} placeholder={placeholder} {...props} $isInputWithIcon="true"/>
+                <InputForm type="text" data-testid={name} placeholder={placeholder} {...propsS} {...props} $isInputWithIcon="true"/>
               </InputWrapper>
             ) : (
-              <InputForm type="text" data-testid={name} placeholder={placeholder} {...props}/>
+              <InputForm type="text" data-testid={name} placeholder={placeholder} {...propsS} {...props} />
             ) 
         )
       case 'checkbox':
