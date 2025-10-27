@@ -8,7 +8,7 @@ export const StyledSearchResultsList = styled.div`
   background-color: ${({ theme }) => theme.color.blue };
   max-height: 20rem;
   overflow-y: auto;
-  z-index: 500;
+  z-index: 420;
   padding: 0.2rem 1rem;
   p {
     line-height: 200%;

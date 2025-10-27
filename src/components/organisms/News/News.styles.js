@@ -59,7 +59,6 @@ export const ContentWrapper = styled.div`
 
 export const ToggleNewsButton = styled.button`
   position: absolute;
-  z-index: 600;
   border: none;
   top: ${({ $showNewsPanel }) => $showNewsPanel ? '0' : '2rem' };
   transform: ${({ $showNewsPanel }) => $showNewsPanel ? 'none' : 'rotate(-90deg);' };
@@ -69,6 +68,7 @@ export const ToggleNewsButton = styled.button`
   padding: ${({ $showNewsPanel }) => $showNewsPanel ? '0' : '0.2rem 1rem' };
   background: ${({ $showNewsPanel, theme }) => $showNewsPanel ? 'none' : theme.color.lightBlue  }; 
   font-size: ${({ theme }) => theme.fontSize.large }; 
+  z-index: 420;
   svg {
     fill: ${({ theme }) => theme.color.lightBlue  };
     width: 1.5rem;

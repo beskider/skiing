@@ -1,4 +1,3 @@
-import { Marker } from 'react-leaflet';
 import styled from "styled-components";
 
 export const MapWrapper = styled.div`   

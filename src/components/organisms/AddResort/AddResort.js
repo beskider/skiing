@@ -12,7 +12,9 @@ import { Button } from "components/atoms/Button/Button";
 import { FormFieldSelect } from "components/molecules/FormFieldSelect/FormFieldSelect";
 import { ResortContext } from "providers/ResortsProvider";
 import { LIFT_TYPES, TRAIL_RATINGS } from "types/resort";
+
 import styled from 'styled-components'
+import { SmallMapModal } from '../SmallMapWindow/SmallMapModal'
 
 const initialResortFormData = {
   id: '',
@@ -49,6 +51,19 @@ export const AddResort = () => {
   const [ formData, setFormData ] = useState(initialResortFormData)
   const { addResort } = useContext(ResortContext);
 
+  const [ miniMapModalOpen, setMiniMapModalOpen ] = useState(false)
+
+  const openMiniMapModal = () => setMiniMapModalOpen(true)
+  const closeMiniMapModal = (params) => {
+    if (params !== null) {
+      setFormData({
+        lat: params[0],
+        long: params[1]
+      })
+    }
+    setMiniMapModalOpen(false)
+  }
+
   const navigate = useNavigate()
 
   const handleCheckboxChange = e => {
@@ -84,7 +99,7 @@ export const AddResort = () => {
 
   const handlePointOnMapButton = e => {
     e.preventDefault()
-    console.log('open modal')
+    openMiniMapModal()
   }
 
   return (
@@ -125,6 +140,7 @@ export const AddResort = () => {
             label="Latitude"
             name="lat"
             maxLength="10"
+            type="number"
             value={formData.lat}
             onChange={handleInputChange}
           />
@@ -133,6 +149,7 @@ export const AddResort = () => {
             label="Longitude"
             name="long"
             maxLength="10"
+            type="number"
             value={formData.long}
             onChange={handleInputChange}
           />
@@ -221,6 +238,17 @@ export const AddResort = () => {
         onChange={handleInputChange}
       />
       <Button type="submit">Add</Button>
+
+      { miniMapModalOpen && <SmallMapModal 
+          isOpen={miniMapModalOpen} 
+          closeModal={closeMiniMapModal} 
+          latFromForm={formData.lat} 
+          longFromForm={formData.long} 
+        />
+      }
+
+
+
     </FormWrapper>
   )
 };

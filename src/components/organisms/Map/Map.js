@@ -1,5 +1,5 @@
 import { Icon } from "leaflet";
-import { MapContainer, TileLayer, useMap, Marker, Popup, useMapEvents} from "react-leaflet";
+import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 import { getMaxTypeOfLifts } from 'helpers';
@@ -8,14 +8,42 @@ import buttonIconImage from 'assets/icons/button-icon.svg';
 import cableCarIconImage from 'assets/icons/cable-car-icon.svg';
 import chairsIconImage from 'assets/icons/chairs-icon.svg';
 
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { ResortContext } from 'providers/ResortsProvider';
 
 import { MapWrapper } from "./Map.styles";
 import { MapButtons } from "components/molecules/MapButtons/MapButtons";
 
+
+import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
+import 'leaflet-geosearch/assets/css/leaflet.css';
+
+
 let handleZoomIn = () => {}  
 let handleZoomOut = () => {}
+
+
+
+
+
+const SearchField = () => {
+
+  const searchControl = new GeoSearchControl({
+    provider: new OpenStreetMapProvider(),
+    style: 'bar',
+    showMarker: false,
+    showPopup: true,
+  });
+
+  const map = useMap();
+
+  useEffect(() => {
+    map.addControl(searchControl);
+    return () => map.removeControl(searchControl);
+  }, []);
+
+}
+
 
 export const Map = () => {
 
@@ -90,6 +118,7 @@ export const Map = () => {
         />
         <SetMapBounds/>
         <MapControl/>
+        <SearchField/>
 
         { resorts.map( (resort) => (
           <Marker
