@@ -3,6 +3,7 @@ import { StyledFormField, InputWrapper } from "./FormFieldInput.styles";
 import { LabelForm } from "components/atoms/LabelForm/LabelForm";
 import PropTypes from "prop-types";
 import { CheckBoxForm } from "components/atoms/CheckBoxForm/CheckBoxForm";
+import { TextareaForm } from 'components/atoms/TextareaForm/TextareaForm';
 
 export const FormFieldInput = ({
   id,
@@ -33,6 +34,8 @@ export const FormFieldInput = ({
         )
       case 'checkbox':
         return <CheckBoxForm type="checkbox" data-testid={name} {...props}/>
+      case 'textarea':
+        return <TextareaForm data-testid={name} placeholder={placeholder} {...propsS} {...props} /> 
     }
   }
   

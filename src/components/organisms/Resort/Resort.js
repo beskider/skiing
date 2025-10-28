@@ -87,9 +87,6 @@ export const Resort = () => {
             <span>{resort?.lat} {resort?.long}</span>
           </ResortInfoEntry>   
 
-
-
-
     
     {/* 
 

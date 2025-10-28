@@ -1,9 +1,13 @@
-import { useState, useContext } from "react"
+import { useState, useEffect, useContext } from "react"
 import { useNavigate } from 'react-router-dom'
 
 import { Title } from "components/atoms/Title/Title"
-import { FormWrapper } from "./AddResort.styles"
+import { FormWrapper, GeoInputBlock, DoubleInputBlock, TripleInputBlock } from "./AddResort.styles"
 import { FormFieldInput } from "components/molecules/FormFieldInput/FormFieldInput"
+
+import { ReactComponent as CableCarIcon } from "assets/icons/cable-car-icon.svg";
+import { ReactComponent as ButtonIcon } from "assets/icons/button-icon.svg";
+import { ReactComponent as ChairsIcon } from "assets/icons/chairs-icon.svg";
 
 import { FaMapMarkedAlt } from "react-icons/fa";
 
@@ -11,9 +15,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { Button } from "components/atoms/Button/Button";
 import { FormFieldSelect } from "components/molecules/FormFieldSelect/FormFieldSelect";
 import { ResortContext } from "providers/ResortsProvider";
-import { LIFT_TYPES, TRAIL_RATINGS } from "types/resort";
+import { TRAIL_RATINGS } from "types/resort";
 
-import styled from 'styled-components'
 import { SmallMapModal } from '../SmallMapWindow/SmallMapModal'
 
 const initialResortFormData = {
@@ -21,9 +24,9 @@ const initialResortFormData = {
   name: '',
   country: '',
   place: '',
-  lat: 0,
-  long: 0, 
-  alt: 0, 
+  lat: 52.191,
+  long: 19.355, 
+  alt: '', 
   lifts: [],  
   trailRatings: [],    
   bunnySlope: false,    
@@ -33,30 +36,27 @@ const initialResortFormData = {
   maplink: '',
   shortname: '',
   description:  '',
-  webcams: []
+  webcams: [ { type: '', code: ''} ]
 }
-
-export const GeoInputBlock = styled.div`
-  display: flex;
-  button {
-    margin: 2rem;
-  }
-` 
-export const InputBlock = styled.div`
-  width: 100%;
-`
 
 export const AddResort = () => {
 
   const [ formData, setFormData ] = useState(initialResortFormData)
-  const { addResort } = useContext(ResortContext);
+  const { addResort, findResortByName} = useContext(ResortContext);
+
+  const [ sampleResort, setSampleResort ] = useState(initialResortFormData)
 
   const [ miniMapModalOpen, setMiniMapModalOpen ] = useState(false)
+
+  useEffect( () => {
+    setSampleResort(findResortByName("Jurasówka"))
+  }, [ findResortByName ])
 
   const openMiniMapModal = () => setMiniMapModalOpen(true)
   const closeMiniMapModal = (params) => {
     if (params !== null) {
       setFormData({
+        ...formData,
         lat: params[0],
         long: params[1]
       })
@@ -73,10 +73,24 @@ export const AddResort = () => {
     })
   }
 
-  const handleInputChange = e => {    
+  const handleInputChange = e => { 
+    console.log(e.target.value)  
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
+    })   
+  }
+
+   const handleInputWebcamTypeChange = e => { 
+    setFormData({
+      ...formData,
+      webcams: [{ type: e.target.value, code: formData.webcams[0].code } ],
+    })   
+  }
+   const handleInputWebcamCodeChange = e => { 
+    setFormData({
+      ...formData,
+      webcams: [{ type: formData.webcams[0].type, code: e.target.value }]
     })   
   }
 
@@ -110,37 +124,42 @@ export const AddResort = () => {
         label="Name"
         name="name"
         maxLength="30"
+        placeholder={sampleResort?.name}
         value={formData.name}
         onChange={handleInputChange}
       />
-      <FormFieldInput 
-        id="country"
-        label="Country"
-        name="country"
-        maxLength="30"
-        value={formData.country}
-        onChange={handleInputChange}
-      />
-      <FormFieldInput 
-        id="place"
-        label="Place"
-        name="place"
-        maxLength="30"
-        value={formData.place}
-        onChange={handleInputChange}
-      />
-
+      <DoubleInputBlock>
+        <FormFieldInput 
+          id="country"
+          label="Country"
+          name="country"
+          maxLength="30"
+          placeholder={sampleResort?.country}
+          value={formData.country}
+          onChange={handleInputChange}
+        />
+        <FormFieldInput 
+          id="place"
+          label="Place"
+          name="place"
+          maxLength="30"
+          placeholder={sampleResort?.place}
+          value={formData.place}
+          onChange={handleInputChange}
+        />
+      </DoubleInputBlock>      
       <GeoInputBlock>
         <Button onClick={handlePointOnMapButton} title="Point on map">
           <FaMapMarkedAlt/>
-        </Button>
-        <InputBlock>
+        </Button>      
+        <div>      
           <FormFieldInput 
             id="lat"
             label="Latitude"
             name="lat"
             maxLength="10"
             type="number"
+            placeholder={sampleResort?.lat}
             value={formData.lat}
             onChange={handleInputChange}
           />
@@ -150,27 +169,58 @@ export const AddResort = () => {
             name="long"
             maxLength="10"
             type="number"
+            placeholder={sampleResort?.long}
             value={formData.long}
             onChange={handleInputChange}
           />
-        </InputBlock>
+        </div>
       </GeoInputBlock>
       <FormFieldInput 
         id="alt"
-        label="Altitude"
+        label="Altitude (AMSL, above sea level)"
         name="alt"
+        placeholder={sampleResort?.alt}
         value={formData.alt}
         onChange={handleInputChange}
-      />
-      <FormFieldSelect 
-        id="lifts"
-        label="Lifts"
-        name="lifts"
-        value={formData.lifts}
-        onChange={handleSelectChange}
-        options={Object.values(LIFT_TYPES)}
-        multiple
-      />
+      />   
+      <TripleInputBlock>
+        <FormFieldInput 
+          id="cablecar"
+          label="No of cablecars"
+          name="cablecar"
+          type="number"
+          min="0"
+          max="20"
+          placeholder={sampleResort?.lifts.find( x => x.type === "cablecar")?.count  || 0}
+          value={formData.lifts?.cablecar}
+          onChange={handleInputChange}
+          icon={<CableCarIcon/>}
+        />
+        <FormFieldInput 
+          id="chairs"
+          label="No of chairs"
+          name="chairs"
+          type="number"
+          min="0"
+          max="20"
+          placeholder={sampleResort?.lifts.find( x => x.type === "chairs")?.count || 0}
+          value={formData.lifts?.chairs}
+          onChange={handleInputChange}
+          icon={<ChairsIcon/>}
+        />
+        <FormFieldInput 
+          id="button"
+          label="No of buttons"
+          name="button"
+          type="number"
+          min="0"
+          max="20"
+          placeholder={sampleResort?.lifts.find( x => x.type === "button")?.count }
+          value={formData.lifts?.button}
+          onChange={handleInputChange}
+          icon={<ButtonIcon/>}
+        />
+      </TripleInputBlock>
       <FormFieldSelect 
         id="trailRatings"
         label="Trail ratings"
@@ -190,15 +240,17 @@ export const AddResort = () => {
       />
       <FormFieldInput 
         id="www"
-        label="www"        
+        label="Website"        
         name="www"
+        placeholder={sampleResort?.www}
         value={formData.www}
         onChange={handleInputChange}
       />
       <FormFieldInput 
         id="phone"
-        label="phone"        
+        label="Phone"        
         name="phone"
+        placeholder={sampleResort?.phone}
         value={formData.phone}
         onChange={handleInputChange}
       />
@@ -206,6 +258,7 @@ export const AddResort = () => {
         id="address"
         label="Address"        
         name="address"
+        placeholder={sampleResort?.address}
         value={formData.address}
         onChange={handleInputChange}
       />
@@ -213,6 +266,7 @@ export const AddResort = () => {
         id="maplink"
         label="Maplink"        
         name="maplink"
+        placeholder={sampleResort?.maplink}
         value={formData.maplink}
         onChange={handleInputChange}
       />
@@ -220,6 +274,7 @@ export const AddResort = () => {
         id="shortname"
         label="Short name"        
         name="shortname"
+        placeholder={sampleResort?.shortname}
         value={formData.mapshortnamelink}
         onChange={handleInputChange}
       />
@@ -227,18 +282,29 @@ export const AddResort = () => {
         id="description"
         label="Description"        
         name="description"
+        placeholder={sampleResort?.description}
         value={formData.description}
         onChange={handleInputChange}
+        type="textarea"
       />
-      <FormFieldInput 
-        id="webcams"
-        label="Webcams"        
-        name="webcams"
-        value={formData.webcams}
-        onChange={handleInputChange}
-      />
+        <h3>Webcams</h3>
+        <FormFieldInput 
+          id="webcamtype"
+          label="Webcam type"        
+          name="webcamtype"
+          placeholder={sampleResort?.webcams[0].type}
+          value={formData.webcams[0].type}
+          onChange={handleInputWebcamTypeChange}
+        />
+        <FormFieldInput 
+          id="webcamcode"
+          label="Webcam code"        
+          name="webcamcode"
+          placeholder={sampleResort?.webcams[0].code}
+          value={formData.webcams[0].code}
+          onChange={handleInputWebcamCodeChange}
+        />
       <Button type="submit">Add</Button>
-
       { miniMapModalOpen && <SmallMapModal 
           isOpen={miniMapModalOpen} 
           closeModal={closeMiniMapModal} 
@@ -246,9 +312,6 @@ export const AddResort = () => {
           longFromForm={formData.long} 
         />
       }
-
-
-
     </FormWrapper>
   )
 };
