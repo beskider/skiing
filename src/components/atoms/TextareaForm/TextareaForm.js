@@ -11,6 +11,7 @@ export const TextareaForm = styled.textarea`
   opacity: 0.5;
   transition: opacity 0.3s ease-in-out;
   width: 100%;
+  height: 10rem;
   resize: vertical;
   margin-bottom: 12px;
   box-shadow:  8px 8px 5px rgba(0, 0, 0, 0.3);

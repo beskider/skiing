@@ -18,6 +18,7 @@ import { ResortContext } from "providers/ResortsProvider";
 import { TRAIL_RATINGS } from "types/resort";
 
 import { SmallMapModal } from '../SmallMapWindow/SmallMapModal'
+import { StyledButtons, StyledLink } from '../ResortsList/ResortsList.styles'
 
 const initialResortFormData = {
   id: '',
@@ -287,24 +288,27 @@ export const AddResort = () => {
         onChange={handleInputChange}
         type="textarea"
       />
-        <h3>Webcams</h3>
-        <FormFieldInput 
-          id="webcamtype"
-          label="Webcam type"        
-          name="webcamtype"
-          placeholder={sampleResort?.webcams[0].type}
-          value={formData.webcams[0].type}
-          onChange={handleInputWebcamTypeChange}
-        />
-        <FormFieldInput 
-          id="webcamcode"
-          label="Webcam code"        
-          name="webcamcode"
-          placeholder={sampleResort?.webcams[0].code}
-          value={formData.webcams[0].code}
-          onChange={handleInputWebcamCodeChange}
-        />
-      <Button type="submit">Add</Button>
+      <h3>Webcams</h3>
+      <FormFieldInput 
+        id="webcamtype"
+        label="Webcam type"        
+        name="webcamtype"
+        placeholder={sampleResort?.webcams[0].type}
+        value={formData.webcams[0].type}
+        onChange={handleInputWebcamTypeChange}
+      />
+      <FormFieldInput 
+        id="webcamcode"
+        label="Webcam code"        
+        name="webcamcode"
+        placeholder={sampleResort?.webcams[0].code}
+        value={formData.webcams[0].code}
+        onChange={handleInputWebcamCodeChange}
+      />
+      <StyledButtons>
+        <Button onClick={() => navigate(-1)}>Cancel</Button>              
+        <Button type="submit">Add</Button>
+      </StyledButtons>
       { miniMapModalOpen && <SmallMapModal 
           isOpen={miniMapModalOpen} 
           closeModal={closeMiniMapModal} 

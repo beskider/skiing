@@ -1,7 +1,7 @@
+import { useContext } from "react";
 import { Wrapper, ArticleWrapper, StyledDate, ContentWrapper, ToggleNewsButton } from "./News.styles"
 import { truncateStringCompleteWords } from "helpers"
 import { ReactComponent as CalendarIcon } from "assets/icons/calendar-icon.svg";
-import { useContext } from "react";
 import { NewsContext } from "providers/NewsProvider";
 
 import { FaCaretRight  } from "react-icons/fa";

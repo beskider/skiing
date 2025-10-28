@@ -1,6 +1,8 @@
+import { useState, useContext, useEffect } from "react";
+
 import { Icon } from "leaflet";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 
 import { getMaxTypeOfLifts } from 'helpers';
 
@@ -8,42 +10,30 @@ import buttonIconImage from 'assets/icons/button-icon.svg';
 import cableCarIconImage from 'assets/icons/cable-car-icon.svg';
 import chairsIconImage from 'assets/icons/chairs-icon.svg';
 
-import { useState, useContext, useEffect } from "react";
 import { ResortContext } from 'providers/ResortsProvider';
 
 import { MapWrapper } from "./Map.styles";
 import { MapButtons } from "components/molecules/MapButtons/MapButtons";
 
-
-import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
+import "leaflet/dist/leaflet.css";
 import 'leaflet-geosearch/assets/css/leaflet.css';
-
 
 let handleZoomIn = () => {}  
 let handleZoomOut = () => {}
 
-
-
-
-
 const SearchField = () => {
-
   const searchControl = new GeoSearchControl({
     provider: new OpenStreetMapProvider(),
     style: 'bar',
     showMarker: false,
     showPopup: true,
   });
-
   const map = useMap();
-
   useEffect(() => {
     map.addControl(searchControl);
     return () => map.removeControl(searchControl);
-  }, []);
-
+  }, [ map, searchControl ]);
 }
-
 
 export const Map = () => {
 
@@ -68,10 +58,9 @@ export const Map = () => {
 
   const toggleMapColor = () => setColorMap(!colorMap)
 
-  const getLiftIcon = lifts => {
-    
+  const getLiftIcon = lifts => {    
     let icon = null;
-    
+
     switch(getMaxTypeOfLifts(lifts)) {
       case 'cablecar':
         icon = cableCarIconImage;
@@ -85,14 +74,11 @@ export const Map = () => {
       default:
         icon = buttonIconImage;
     }
-
     return new Icon({
       iconUrl: icon,
       iconSize: [24, 24]
     })
-
-  }
-   
+  }  
 
   return (
     <MapWrapper $colorMap={colorMap}>
@@ -119,7 +105,6 @@ export const Map = () => {
         <SetMapBounds/>
         <MapControl/>
         <SearchField/>
-
         { resorts.map( (resort) => (
           <Marker
             position={[ resort.lat, resort.long ]}
@@ -132,11 +117,8 @@ export const Map = () => {
               <small>{resort.place}</small>
             </Popup>
           </Marker>
-        ))}      
-
+        ))} 
       </MapContainer>
-
     </MapWrapper>
-
   );
 }

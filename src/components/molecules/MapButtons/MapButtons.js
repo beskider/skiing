@@ -3,7 +3,7 @@ import { MapButtonSpace } from "components/atoms/MapButtonSpace/MapButtonSpace";
 import { ButtonsWrapper } from "./MapButtons.styles";
 import { ReactComponent as ColorPaletteIcon } from 'assets/icons/color-palette-icon.svg'
 
-const MapButtons = ({changeMapColorMode, zoomIn, zoomOut}) => {
+const MapButtons = ({ changeMapColorMode, zoomIn, zoomOut }) => {
   return (
     <ButtonsWrapper>
       <MapButton 
