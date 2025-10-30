@@ -54,6 +54,7 @@ export const AddResort = () => {
   }, [ findResortByName ])
 
   const openMiniMapModal = () => setMiniMapModalOpen(true)
+
   const closeMiniMapModal = (params) => {
     if (params !== null) {
       setFormData({
@@ -104,7 +105,7 @@ export const AddResort = () => {
     })
   }
 
-  const handleAddResort = e => {
+  const onSubmit = e => {
     e.preventDefault();
     formData.id = uuidv4();
     addResort(formData);
@@ -112,13 +113,17 @@ export const AddResort = () => {
     navigate('/');
   } 
 
+  const onCancel = () => {
+    navigate(-1)
+  }
+ 
   const handlePointOnMapButton = e => {
     e.preventDefault()
     openMiniMapModal()
   }
 
   return (
-    <FormWrapper as="form" onSubmit={handleAddResort}>
+    <FormWrapper as="form" onSubmit={onSubmit}>
       <Title>New ski resort</Title>
       <FormFieldInput
         id="name"
@@ -180,6 +185,7 @@ export const AddResort = () => {
         id="alt"
         label="Altitude (AMSL, above sea level)"
         name="alt"
+        maxLength="20"
         placeholder={sampleResort?.alt}
         value={formData.alt}
         onChange={handleInputChange}
@@ -193,7 +199,7 @@ export const AddResort = () => {
           min="0"
           max="20"
           placeholder={sampleResort?.lifts.find( x => x.type === "cablecar")?.count  || 0}
-          value={formData.lifts?.cablecar}
+          value={formData.lifts.cablecar}
           onChange={handleInputChange}
           icon={<CableCarIcon/>}
         />
@@ -205,7 +211,7 @@ export const AddResort = () => {
           min="0"
           max="20"
           placeholder={sampleResort?.lifts.find( x => x.type === "chairs")?.count || 0}
-          value={formData.lifts?.chairs}
+          value={formData.lifts.chairs}
           onChange={handleInputChange}
           icon={<ChairsIcon/>}
         />
@@ -217,7 +223,7 @@ export const AddResort = () => {
           min="0"
           max="20"
           placeholder={sampleResort?.lifts.find( x => x.type === "button")?.count }
-          value={formData.lifts?.button}
+          value={formData.lifts.button}
           onChange={handleInputChange}
           icon={<ButtonIcon/>}
         />
@@ -243,6 +249,7 @@ export const AddResort = () => {
         id="www"
         label="Website"        
         name="www"
+        maxLength="30"
         placeholder={sampleResort?.www}
         value={formData.www}
         onChange={handleInputChange}
@@ -251,6 +258,7 @@ export const AddResort = () => {
         id="phone"
         label="Phone"        
         name="phone"
+        maxLength="30"
         placeholder={sampleResort?.phone}
         value={formData.phone}
         onChange={handleInputChange}
@@ -259,6 +267,7 @@ export const AddResort = () => {
         id="address"
         label="Address"        
         name="address"
+        maxLength="30"
         placeholder={sampleResort?.address}
         value={formData.address}
         onChange={handleInputChange}
@@ -267,6 +276,7 @@ export const AddResort = () => {
         id="maplink"
         label="Maplink"        
         name="maplink"
+        maxLength="40"
         placeholder={sampleResort?.maplink}
         value={formData.maplink}
         onChange={handleInputChange}
@@ -275,6 +285,7 @@ export const AddResort = () => {
         id="shortname"
         label="Short name"        
         name="shortname"
+        maxLength="20"
         placeholder={sampleResort?.shortname}
         value={formData.mapshortnamelink}
         onChange={handleInputChange}
@@ -283,6 +294,7 @@ export const AddResort = () => {
         id="description"
         label="Description"        
         name="description"
+        maxLength="2000"
         placeholder={sampleResort?.description}
         value={formData.description}
         onChange={handleInputChange}
@@ -306,7 +318,7 @@ export const AddResort = () => {
         onChange={handleInputWebcamCodeChange}
       />
       <StyledButtons>
-        <Button onClick={() => navigate(-1)}>Cancel</Button>              
+        <Button onClick={onCancel}>Cancel</Button>              
         <Button type="submit">Add</Button>
       </StyledButtons>
       { miniMapModalOpen && <SmallMapModal 

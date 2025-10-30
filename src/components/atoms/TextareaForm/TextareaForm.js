@@ -15,6 +15,9 @@ export const TextareaForm = styled.textarea`
   resize: vertical;
   margin-bottom: 12px;
   box-shadow:  8px 8px 5px rgba(0, 0, 0, 0.3);
+  &::placeholder {
+    opacity: 0.5;
+  }  
   &:hover {
     opacity: 0.7;
   }
