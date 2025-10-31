@@ -4,7 +4,7 @@ export const InputForm = styled.input`
   padding: 12px;
   border-radius: 10px;
   ${({ $isInputWithIcon }) => $isInputWithIcon && 'text-indent: 2.2rem'};
-  border: none;
+  border: ${({ $isError }) => $isError ? '3px solid red' : 'none'};  
   font-size: ${({ theme }) => theme.fontSize.large};
   font-weight: bold;
   color: ${({ theme }) => theme.color.black};

@@ -46,3 +46,12 @@ export const truncateStringCompleteWords = (str, maxLength) => {
 }
 
 export const sortNewsByLatest = news => news.sort( (a, b) => Date.parse(b.date) - Date.parse(a.date))
+
+export const isObjectEmpty = object => {
+  for (const prop in object) {
+    if (Object.hasOwn(object, prop)) {
+      return false
+    }
+  }
+  return true
+}

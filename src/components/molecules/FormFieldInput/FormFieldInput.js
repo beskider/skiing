@@ -1,5 +1,5 @@
 import { InputForm } from "components/atoms/InputForm/InputForm";
-import { StyledFormField, InputWrapper } from "./FormFieldInput.styles";
+import { StyledFormField, InputWrapper, Error } from "./FormFieldInput.styles";
 import { LabelForm } from "components/atoms/LabelForm/LabelForm";
 import PropTypes from "prop-types";
 import { CheckBoxForm } from "components/atoms/CheckBoxForm/CheckBoxForm";
@@ -14,6 +14,7 @@ export const FormFieldInput = ({
   placeholder,
   icon,
   type = "text",
+  error,
   ...props
 }) => {  
 
@@ -24,18 +25,29 @@ export const FormFieldInput = ({
       case 'text': 
         return (
           icon ? (
-              <InputWrapper>
-                { icon }
-                <InputForm type="text" data-testid={name} placeholder={placeholder} {...propsS} {...props} $isInputWithIcon="true"/>
-              </InputWrapper>
+              <>
+                <InputWrapper>
+                  { icon }                  
+                  <InputForm type={type} data-testid={name} placeholder={placeholder}  $isInputWithIcon="true" $isError={error} {...propsS} {...props}/>
+                </InputWrapper>
+                { error && <Error>{error}</Error> } 
+              </>
             ) : (
-              <InputForm type="text" data-testid={name} placeholder={placeholder} {...propsS} {...props} />
+              <>
+                <InputForm type={type} data-testid={name} placeholder={placeholder} $isError={error} {...propsS} {...props} />
+                { error && <Error>{error}</Error> }
+              </>
             ) 
         )
       case 'checkbox':
-        return <CheckBoxForm type="checkbox" data-testid={name} {...props}/>
+        return <CheckBoxForm type="checkbox" data-testid={name} $isError={error} {...props}/>
       case 'textarea':
-        return <TextareaForm data-testid={name} placeholder={placeholder} {...propsS} {...props} /> 
+        return (
+          <>
+            <TextareaForm data-testid={name} placeholder={placeholder} $isError={error} {...propsS} {...props} />
+            { error && <Error>{error}</Error> }
+          </> 
+        )
     }
   }
   

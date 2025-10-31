@@ -6,7 +6,7 @@ export const Button = (props) => {
   const { isround, children } = props;
 
   return (
-    <StyledButton 
+    <StyledButton
       isround={isround} 
       {...props}
     >

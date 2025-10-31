@@ -10,6 +10,7 @@ export const ResortContext = createContext({
   findResortByTextFragmentInNameOrPlace: () => {},
   addResort: () => {},
   deleteResort: () => {},
+  getNewId: () => {},
   isLoading: true,
   error: '',
 })
@@ -77,6 +78,11 @@ export const ResortsProvider = ({ children }) => {
     return resorts.filter(resort => resort.hasOwnProperty('webcams'))
   } 
 
+  const getNewId = () => {
+    return resorts.reduce( (prev, current) => ( 
+      prev && Number(prev.id) > Number(current.id) ) ? prev.id : current.id )
+  }
+
   return (
     <ResortContext.Provider 
       value={{
@@ -86,6 +92,7 @@ export const ResortsProvider = ({ children }) => {
         findResortByTextFragmentInNameOrPlace,
         addResort,
         deleteResort,
+        getNewId,
         isLoading,
         error
     }}>

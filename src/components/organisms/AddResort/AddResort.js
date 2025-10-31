@@ -1,6 +1,8 @@
 import { useState, useEffect, useContext } from "react"
 import { useNavigate } from 'react-router-dom'
 
+import * as yup from 'yup';
+
 import { Title } from "components/atoms/Title/Title"
 import { FormWrapper, GeoInputBlock, DoubleInputBlock, TripleInputBlock } from "./AddResort.styles"
 import { FormFieldInput } from "components/molecules/FormFieldInput/FormFieldInput"
@@ -19,6 +21,7 @@ import { TRAIL_RATINGS } from "types/resort";
 
 import { SmallMapModal } from '../SmallMapWindow/SmallMapModal'
 import { StyledButtons, StyledLink } from '../ResortsList/ResortsList.styles'
+import { isObjectEmpty } from 'helpers';
 
 const initialResortFormData = {
   id: '',
@@ -28,7 +31,20 @@ const initialResortFormData = {
   lat: 52.191,
   long: 19.355, 
   alt: '', 
-  lifts: [],  
+  lifts: [
+    {
+      type: 'cablecar',
+      count: 0
+    },
+    {
+      type: 'chairs',
+      count: 0
+    },
+    {
+      type: 'button',
+      count: 0
+    }
+  ],  
   trailRatings: [],    
   bunnySlope: false,    
   www: '',
@@ -40,10 +56,32 @@ const initialResortFormData = {
   webcams: [ { type: '', code: ''} ]
 }
 
-export const AddResort = () => {
+const schema = yup.object().shape({
+  name: yup.string().max(30).required(),
+  country: yup.string().max(30).required(),
+  place: yup.string().required().max(30),
+  lat: yup.number().required().min(-91).max(91),
+  long: yup.number().required().min(-181).max(181),
+  alt: yup.string().required().max(30),
+  lifts: yup.array().required().of(yup.object().shape({
+      type: yup.string(),
+      count: yup.number().min(0).max(20)
+  })),
+  /// trailRatings: yup.array().required().of(Object.values(TRAIL_RATINGS)),
+  bunnySlope: yup.boolean().required(),
+  www: yup.string().required().max(40),
+  phone: yup.string().required().max(30),
+  address: yup.string().required().max(30),
+  maplink: yup.string().required().max(40),
+  shortname: yup.string().required().max(20),
+  description: yup.string().required().max(2000),
+})
 
+export const AddResort = () => {
+  
   const [ formData, setFormData ] = useState(initialResortFormData)
-  const { addResort, findResortByName} = useContext(ResortContext);
+  const [ formErrors, setFormErrors ] = useState({})
+  const { addResort, getNewId, findResortByName} = useContext(ResortContext);
 
   const [ sampleResort, setSampleResort ] = useState(initialResortFormData)
 
@@ -75,8 +113,17 @@ export const AddResort = () => {
     })
   }
 
-  const handleInputChange = e => { 
-    console.log(e.target.value)  
+  const handleChangeLift = e => {
+    const lifts = [ ...formData.lifts ]
+    const foundIndex = lifts.findIndex(x => x.type == e.target.name)
+    lifts[foundIndex] = { type: e.target.name, count: Number(e.target.value)  }
+    setFormData({
+      ...formData,
+      lifts: lifts,
+    })
+  }
+
+  const handleInputChange = e => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -105,13 +152,34 @@ export const AddResort = () => {
     })
   }
 
+  const validateForm = async () => {
+    let errors = false;
+    try {
+      await schema.validate(formData, { abortEarly: false});
+    } catch (err) {
+      errors = err;
+      const formErrors = errors.errors.reduce((a, v) => ({ ...a, [v.split(" ")[0]]: v}), {})
+      console.log('Bledy: ', formErrors)
+      setFormErrors(formErrors)
+    }
+    if (!errors) {setFormErrors({}) }
+  }
+
   const onSubmit = e => {
-    e.preventDefault();
-    formData.id = uuidv4();
-    addResort(formData);
-    setFormData(initialResortFormData);    
-    navigate('/');
-  } 
+    e.preventDefault()
+    validateForm()
+
+    if(isObjectEmpty(formErrors)) {
+      // formData.id = uuidv4()
+      formData.id = getNewId()
+      console.log('Dodaje: ', formData)
+      // addResort(formData);
+      /// usun lisfts z liczba 0
+      setFormData(initialResortFormData);    
+      // navigate('/');
+    }
+  }    
+  
 
   const onCancel = () => {
     navigate(-1)
@@ -120,6 +188,21 @@ export const AddResort = () => {
   const handlePointOnMapButton = e => {
     e.preventDefault()
     openMiniMapModal()
+  }
+
+  const generateJSON = () => {
+    // formData.id = uuidv4()
+    formData.id = getNewId()
+
+    const fileName = formData.shortname !== '' ? `${formData.shortname}.json` : 'resort.json';
+    const data = new Blob([JSON.stringify(formData)], { type: "text/json" });
+    const jsonURL = window.URL.createObjectURL(data);
+    const link = document.createElement("a");
+    document.body.appendChild(link);
+    link.href = jsonURL;
+    link.setAttribute("download", fileName);
+    link.click();
+    document.body.removeChild(link);
   }
 
   return (
@@ -133,6 +216,7 @@ export const AddResort = () => {
         placeholder={sampleResort?.name}
         value={formData.name}
         onChange={handleInputChange}
+        error={formErrors.name}
       />
       <DoubleInputBlock>
         <FormFieldInput 
@@ -143,6 +227,7 @@ export const AddResort = () => {
           placeholder={sampleResort?.country}
           value={formData.country}
           onChange={handleInputChange}
+          error={formErrors.country}
         />
         <FormFieldInput 
           id="place"
@@ -152,6 +237,7 @@ export const AddResort = () => {
           placeholder={sampleResort?.place}
           value={formData.place}
           onChange={handleInputChange}
+          error={formErrors.place}
         />
       </DoubleInputBlock>      
       <GeoInputBlock>
@@ -164,20 +250,22 @@ export const AddResort = () => {
             label="Latitude"
             name="lat"
             maxLength="10"
-            type="number"
+            type="text"
             placeholder={sampleResort?.lat}
             value={formData.lat}
             onChange={handleInputChange}
+            error={formErrors.lat}
           />
           <FormFieldInput
             id="long"
             label="Longitude"
             name="long"
             maxLength="10"
-            type="number"
+            type="text"
             placeholder={sampleResort?.long}
             value={formData.long}
             onChange={handleInputChange}
+            error={formErrors.long}
           />
         </div>
       </GeoInputBlock>
@@ -189,6 +277,7 @@ export const AddResort = () => {
         placeholder={sampleResort?.alt}
         value={formData.alt}
         onChange={handleInputChange}
+        error={formErrors.alt}
       />   
       <TripleInputBlock>
         <FormFieldInput 
@@ -199,9 +288,10 @@ export const AddResort = () => {
           min="0"
           max="20"
           placeholder={sampleResort?.lifts.find( x => x.type === "cablecar")?.count  || 0}
-          value={formData.lifts.cablecar}
-          onChange={handleInputChange}
+          value={formData.lifts.find( x => x.type === "cablecar").count}
+          onChange={handleChangeLift}
           icon={<CableCarIcon/>}
+          error={formErrors.cablecar}
         />
         <FormFieldInput 
           id="chairs"
@@ -211,9 +301,10 @@ export const AddResort = () => {
           min="0"
           max="20"
           placeholder={sampleResort?.lifts.find( x => x.type === "chairs")?.count || 0}
-          value={formData.lifts.chairs}
-          onChange={handleInputChange}
+          value={formData.lifts.find( x => x.type === "chairs").count}
+          onChange={handleChangeLift}
           icon={<ChairsIcon/>}
+          error={formErrors.chairs}
         />
         <FormFieldInput 
           id="button"
@@ -223,9 +314,10 @@ export const AddResort = () => {
           min="0"
           max="20"
           placeholder={sampleResort?.lifts.find( x => x.type === "button")?.count }
-          value={formData.lifts.button}
-          onChange={handleInputChange}
+          value={formData.lifts.find( x => x.type === "button").count}
+          onChange={handleChangeLift}
           icon={<ButtonIcon/>}
+          error={formErrors.buttons}
         />
       </TripleInputBlock>
       <FormFieldSelect 
@@ -235,6 +327,7 @@ export const AddResort = () => {
         value={formData.trailRatings}
         onChange={handleSelectChange}
         options={Object.values(TRAIL_RATINGS)}
+        error={formErrors.trailRatings}
         multiple
       />
       <FormFieldInput 
@@ -249,10 +342,11 @@ export const AddResort = () => {
         id="www"
         label="Website"        
         name="www"
-        maxLength="30"
+        maxLength="40"
         placeholder={sampleResort?.www}
         value={formData.www}
         onChange={handleInputChange}
+        error={formErrors.www}
       />
       <FormFieldInput 
         id="phone"
@@ -262,6 +356,7 @@ export const AddResort = () => {
         placeholder={sampleResort?.phone}
         value={formData.phone}
         onChange={handleInputChange}
+        error={formErrors.phone}
       />
       <FormFieldInput 
         id="address"
@@ -271,6 +366,7 @@ export const AddResort = () => {
         placeholder={sampleResort?.address}
         value={formData.address}
         onChange={handleInputChange}
+        error={formErrors.address}
       />
       <FormFieldInput 
         id="maplink"
@@ -280,6 +376,7 @@ export const AddResort = () => {
         placeholder={sampleResort?.maplink}
         value={formData.maplink}
         onChange={handleInputChange}
+        error={formErrors.maplink}
       />
       <FormFieldInput 
         id="shortname"
@@ -287,8 +384,9 @@ export const AddResort = () => {
         name="shortname"
         maxLength="20"
         placeholder={sampleResort?.shortname}
-        value={formData.mapshortnamelink}
+        value={formData.shortname}
         onChange={handleInputChange}
+        error={formErrors.shortname}
       />
       <FormFieldInput 
         id="description"
@@ -299,6 +397,7 @@ export const AddResort = () => {
         value={formData.description}
         onChange={handleInputChange}
         type="textarea"
+        error={formErrors.description}
       />
       <h3>Webcams</h3>
       <FormFieldInput 
@@ -308,6 +407,7 @@ export const AddResort = () => {
         placeholder={sampleResort?.webcams[0].type}
         value={formData.webcams[0].type}
         onChange={handleInputWebcamTypeChange}
+        error={formErrors.webcamType}
       />
       <FormFieldInput 
         id="webcamcode"
@@ -316,9 +416,11 @@ export const AddResort = () => {
         placeholder={sampleResort?.webcams[0].code}
         value={formData.webcams[0].code}
         onChange={handleInputWebcamCodeChange}
+        error={formErrors.webcamCode}
       />
       <StyledButtons>
         <Button onClick={onCancel}>Cancel</Button>              
+        <Button onClick={generateJSON}>JSON</Button>              
         <Button type="submit">Add</Button>
       </StyledButtons>
       { miniMapModalOpen && <SmallMapModal 

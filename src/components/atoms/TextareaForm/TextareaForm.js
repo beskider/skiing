@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const TextareaForm = styled.textarea`
   padding: 12px;
   border-radius: 10px;
-  border: none;
+  border: ${({ $isError }) => $isError ? '3px solid red' : 'none'};  
   font-size: ${({ theme }) => theme.fontSize.large};
   font-weight: bold;
   color: ${({ theme }) => theme.color.black};

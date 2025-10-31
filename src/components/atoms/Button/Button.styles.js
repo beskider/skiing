@@ -21,4 +21,12 @@ export const StyledButton = styled.button`
     fill: ${({ theme }) => theme.color.white };
     stroke: ${({ theme }) => theme.color.white };    
   }  
+  &:hover {
+    opacity: 0.9;
+  }
+  &:disabled,
+  &[disabled]{
+    background-color: ${({ theme }) => theme.color.grey };
+    color: ${({ theme }) => theme.color.white };
+}
 `
