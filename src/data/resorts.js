@@ -143,7 +143,7 @@ export const resorts = [
         count: 2,
       }
     ],
-    trailRatings: [ 'green', 'blue', 'red', 'black' ],
+    trailRatings: [ 'green', 'blue', 'red' ],
     bunnySlope: true,
     www: 'https://www.slotwinyarena.pl',
     phone: '512 409 905',

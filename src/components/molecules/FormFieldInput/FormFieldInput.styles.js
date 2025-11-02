@@ -27,7 +27,7 @@ export const Error = styled.div`
   width: 100%;
   height: 2rem;
   color: white;
-  margin-top: -1rem;
+  margin-top: -0.7rem;
   display: flex;
   justify-content: center;
   align-items: center;

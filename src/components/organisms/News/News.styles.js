@@ -60,6 +60,7 @@ export const ContentWrapper = styled.div`
 export const ToggleNewsButton = styled.button`
   position: absolute;
   border: none;
+  color: ${({ theme }) => theme.color.white };
   top: ${({ $showNewsPanel }) => $showNewsPanel ? '0' : '2rem' };
   transform: ${({ $showNewsPanel }) => $showNewsPanel ? 'none' : 'rotate(-90deg);' };
   left: ${({ $showNewsPanel }) => $showNewsPanel ? '0' : 'none' };

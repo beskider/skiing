@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import { useNavigate } from 'react-router-dom'
 
 import * as yup from 'yup';
+import js_beautify from 'js-beautify';
 
 import { Title } from "components/atoms/Title/Title"
 import { FormWrapper, GeoInputBlock, DoubleInputBlock, TripleInputBlock } from "./AddResort.styles"
@@ -191,11 +192,11 @@ export const AddResort = () => {
   }
 
   const generateJSON = () => {
-    // formData.id = uuidv4()
-    formData.id = getNewId()
-
+    formData.id = getNewId() // formData.id = uuidv4()
     const fileName = formData.shortname !== '' ? `${formData.shortname}.json` : 'resort.json';
-    const data = new Blob([JSON.stringify(formData)], { type: "text/json" });
+    let jsonFile = JSON.stringify(formData)
+    jsonFile = js_beautify(jsonFile, { indent_size: 2, space_in_empty_paren: true })
+    const data = new Blob([jsonFile], { type: "text/json" });
     const jsonURL = window.URL.createObjectURL(data);
     const link = document.createElement("a");
     document.body.appendChild(link);

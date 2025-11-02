@@ -4,11 +4,10 @@ import { Icon } from "leaflet";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 
-import { getMaxTypeOfLifts } from 'helpers';
-
-import buttonIconImage from 'assets/icons/button-icon.svg';
-import cableCarIconImage from 'assets/icons/cable-car-icon.svg';
-import chairsIconImage from 'assets/icons/chairs-icon.svg';
+import resortIconBlackSvg from "assets/icons/resort-icon-black.svg"
+import resortIconRedSvg from "assets/icons/resort-icon-red.svg"
+import resortIconBlueSvg from "assets/icons/resort-icon-blue.svg"
+import resortIconGreenSvg from "assets/icons/resort-icon-green.svg"
 
 import { ResortContext } from 'providers/ResortsProvider';
 
@@ -17,6 +16,8 @@ import { MapButtons } from "components/molecules/MapButtons/MapButtons";
 
 import "leaflet/dist/leaflet.css";
 import 'leaflet-geosearch/assets/css/leaflet.css';
+import { getMaxTrailDifficulty } from 'helpers';
+import { TRAIL_RATINGS } from 'types/resort';
 
 let handleZoomIn = () => {}  
 let handleZoomOut = () => {}
@@ -58,27 +59,21 @@ export const Map = () => {
 
   const toggleMapColor = () => setColorMap(!colorMap)
 
-  const getLiftIcon = lifts => {    
-    let icon = null;
-
-    switch(getMaxTypeOfLifts(lifts)) {
-      case 'cablecar':
-        icon = cableCarIconImage;
-        break;
-      case 'chairs':
-        icon = chairsIconImage;
-        break;
-      case 'button':
-        icon = buttonIconImage;
-        break;
+  const getResortIcon = trails => {
+    const iconColor = getMaxTrailDifficulty(trails)
+    switch (iconColor) {
+      case TRAIL_RATINGS.BLACK:
+        return resortIconBlackSvg;
+      case TRAIL_RATINGS.RED:
+        return resortIconRedSvg;
+      case TRAIL_RATINGS.BLUE:
+        return resortIconBlueSvg;
+      case TRAIL_RATINGS.GREEN:
+        return resortIconGreenSvg;
       default:
-        icon = buttonIconImage;
+        return resortIconGreenSvg;
     }
-    return new Icon({
-      iconUrl: icon,
-      iconSize: [24, 24]
-    })
-  }  
+  }
 
   return (
     <MapWrapper $colorMap={colorMap}>
@@ -108,7 +103,11 @@ export const Map = () => {
         { resorts.map( (resort) => (
           <Marker
             position={[ resort.lat, resort.long ]}
-            icon={getLiftIcon(resort.lifts)} 
+            icon={new Icon({
+                    iconUrl: getResortIcon(resort.trailRatings),
+                    iconSize: [24, 24],
+                    iconAnchor: [12, 40]
+                  })}
             key={resort.id}
           >
             <Popup>
