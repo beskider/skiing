@@ -1,7 +1,7 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect, memo, useMemo } from "react";
 
 import { Icon } from "leaflet";
-import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, useMap, Marker, Popup, useMapEvents, useMapEvent } from "react-leaflet";
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 
 import resortIconBlackSvg from "assets/icons/resort-icon-black.svg"
@@ -23,12 +23,14 @@ let handleZoomIn = () => {}
 let handleZoomOut = () => {}
 
 const SearchField = () => {
+
   const searchControl = new GeoSearchControl({
     provider: new OpenStreetMapProvider(),
     style: 'bar',
     showMarker: false,
     showPopup: true,
   });
+
   const map = useMap();
   useEffect(() => {
     map.addControl(searchControl);
@@ -42,6 +44,7 @@ export const Map = () => {
 
   const MapControl = () => {  
     const map = useMap();
+    
     handleZoomIn = () =>  map.zoomIn()
     handleZoomOut = () => map.zoomOut() 
   }
@@ -74,7 +77,7 @@ export const Map = () => {
         return resortIconGreenSvg;
     }
   }
-
+  
   return (
     <MapWrapper $colorMap={colorMap}>
       <MapContainer
@@ -105,7 +108,7 @@ export const Map = () => {
             position={[ resort.lat, resort.long ]}
             icon={new Icon({
                     iconUrl: getResortIcon(resort.trailRatings),
-                    iconSize: [24, 24],
+                    iconSize: [20, 20],
                     iconAnchor: [12, 40]
                   })}
             key={resort.id}
@@ -119,5 +122,5 @@ export const Map = () => {
         ))} 
       </MapContainer>
     </MapWrapper>
-  );
+  )
 }

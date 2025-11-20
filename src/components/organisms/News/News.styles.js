@@ -1,14 +1,19 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  grid-row: 2 / 3;
-  grid-column: 2 / 3;
-  margin: 20px 0;
   position: relative;
+  width: 100%;
+      margin: 20px 0; 
   p { 
     line-height: 1.5;  
     text-align: justify;
   };
+  ${({ theme }) => theme.mediaQuery.tablet} {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+   
+  }
+
 `
 
 export const ArticleWrapper = styled.div`
@@ -58,13 +63,9 @@ export const ContentWrapper = styled.div`
 `
 
 export const ToggleNewsButton = styled.button`
-  position: absolute;
   border: none;
+  position: sticky;
   color: ${({ theme }) => theme.color.white };
-  top: ${({ $showNewsPanel }) => $showNewsPanel ? '0' : '2rem' };
-  transform: ${({ $showNewsPanel }) => $showNewsPanel ? 'none' : 'rotate(-90deg);' };
-  left: ${({ $showNewsPanel }) => $showNewsPanel ? '0' : 'none' };
-  right: ${({ $showNewsPanel }) => $showNewsPanel ? 'none' : '-0.5rem' };
   transition: transform 0.5s ease-in-out;
   padding: ${({ $showNewsPanel }) => $showNewsPanel ? '0' : '0.2rem 1rem' };
   background: ${({ $showNewsPanel, theme }) => $showNewsPanel ? 'none' : theme.color.lightBlue  }; 
@@ -74,5 +75,12 @@ export const ToggleNewsButton = styled.button`
     fill: ${({ theme }) => theme.color.lightBlue  };
     width: 1.5rem;
     height: 1.5rem;
+  }
+  ${({ theme }) => theme.mediaQuery.tablet} {
+    position: absolute;
+    top: ${({ $showNewsPanel }) => $showNewsPanel ? '0' : '2rem' };
+    transform: ${({ $showNewsPanel }) => $showNewsPanel ? 'none' : 'rotate(-90deg);' };
+    left: ${({ $showNewsPanel }) => $showNewsPanel ? '0' : 'none' };
+    right: ${({ $showNewsPanel }) => $showNewsPanel ? 'none' : '-0.5rem' };
   }
 `

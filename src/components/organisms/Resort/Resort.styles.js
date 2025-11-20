@@ -46,10 +46,14 @@ export const Alt = styled.h3`
 
 export const ContentWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 350px;
+  grid-template-columns: 9fr 1fr;
   grid-template-rows: minmax(100px, auto);
   gap: 20px;  
-  line-height: 1.8;    
+  line-height: 1.8;  
+  ${({ theme }) => theme.mediaQuery.tablet} {
+    grid-template-columns: 1fr 350px;
+  }
+
 `
 
 export const ResortView = styled.img`
@@ -71,7 +75,7 @@ export const ResortMap = styled.iframe`
 
 export const Content = styled.div`
   grid-column: 1 / 2;
-  grid-row: 1 / 4;   
+  grid-row: 1 / 4;     
 `
 
 export const TrailsBar = styled.div`

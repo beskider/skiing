@@ -6,7 +6,7 @@ import { FaSearch } from 'react-icons/fa';
 
 import { useEffect, useRef } from 'react';
 
-export const NavigationSearchButton = () => {
+export const NavigationSearchButton = ({ closeMenu }) => {
   
   const [ isOpen, setIsOpen ] = useState(false)
   const [ seachText, setSearchText ] = useState('')
@@ -19,7 +19,12 @@ export const NavigationSearchButton = () => {
   const closeSearch = () => {
     setSearchText('')
     setSearchResults([])
-    setIsOpen(false)
+    setIsOpen(false) 
+  }
+
+  const closeSearchCloseMenu = () => {
+    closeSearch()
+    closeMenu()
   }
 
   const useOutsideAlerter = ref => {
@@ -33,10 +38,10 @@ export const NavigationSearchButton = () => {
       return () => {
         document.removeEventListener("mousedown", handleClickOutside);
       };
-    }, [ref]);
+    }, [ ref ]);
   }
 
-  const toggleOpen = () => ( isOpen ? closeSearch() : setIsOpen(true) ) 
+  const toggleOpen = () => ( isOpen ? closeSearchCloseMenu() : setIsOpen(true) ) 
   
   const handleSearchChange = e => {
     const searchText = e.target.value
@@ -68,7 +73,7 @@ export const NavigationSearchButton = () => {
             type="search"
             value={seachText} 
             onChange={handleSearchChange} 
-            placeholder="Szukaj ośrodka..."
+            placeholder="Resort name or place..."
           />
         }
         { 
@@ -76,11 +81,10 @@ export const NavigationSearchButton = () => {
           searchResults.length > 0 && 
           <SearchResultsList 
             results={searchResults} 
-            closeSearch={() => closeSearch()}
+            closeSearch={() => closeSearchCloseMenu()}
           />
         }
       </StyledNavigationSearchButton>
-
     </>
   )
 }

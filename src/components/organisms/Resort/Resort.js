@@ -28,7 +28,7 @@ export const Resort = () => {
   }, [findResort, name])
 
   if (!resort) return <h3>No data</h3>;
-
+  
   return (   
     <Wrapper>   
       <HeaderWrapper>
@@ -99,26 +99,7 @@ export const Resort = () => {
     
     
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
-
        
-
-          
-          
 
 
 

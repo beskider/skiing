@@ -23,4 +23,8 @@ export const theme = {
     xl: '24px',
     xxl: '36px',
   },
+  mediaQuery: {
+    tablet: '@media (min-width: 768px)',
+    desktop: '@media (min-width: 1024px)',
+  }
 };

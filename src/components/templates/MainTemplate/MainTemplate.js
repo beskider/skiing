@@ -6,16 +6,16 @@ import { useState } from 'react'
 
 export const MainTemplate = ({ children }) => {
   
-  const [ showNewsPanel, setShowNewsPanel ] = useState(true)
+  const [ showNewsPanel, setShowNewsPanel ] = useState(false)
   
   return (
     <Wrapper $showSidePanel={showNewsPanel} >
       <MainCookieConsent />
       <Navigation />
+      <News showNewsPanel={showNewsPanel} setShowNewsPanel={setShowNewsPanel}/> 
       <ContentWrapper>
         {children}
       </ContentWrapper>
-      <News showNewsPanel={showNewsPanel} setShowNewsPanel={setShowNewsPanel}/> 
     </Wrapper>
   )
 
