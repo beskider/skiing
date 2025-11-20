@@ -5,19 +5,24 @@ import Hamburger from 'hamburger-react';
 import { theme } from 'assets/styles/theme';
 import useWindowSize from 'hooks/useWindowSize';
 
-export const Navigation = () => {
+export const Navigation = ({ setShowNewsPanel }) => {
 
   const [ width, height ] = useWindowSize()
 
   useEffect(() => {
-    if (width < 768) {
+    if (width < theme.mediaQuery.tablet ) {
       closeMenu()
     }
   }, [ width ])
 
   const [ isHamburgerOpen, setHamburgerOpen ] = useState(false)
 
-  const toggleNavigation = () => setHamburgerOpen(!isHamburgerOpen);
+  const toggleNavigation = () => {
+    setHamburgerOpen(!isHamburgerOpen);
+    if (width < theme.mediaQuery.tablet) {
+      setShowNewsPanel(false)
+    }
+  }
   
   const closeMenu = () => setHamburgerOpen(false); 
 

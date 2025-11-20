@@ -11,7 +11,7 @@ export const MainTemplate = ({ children }) => {
   return (
     <Wrapper $showSidePanel={showNewsPanel} >
       <MainCookieConsent />
-      <Navigation />
+      <Navigation setShowNewsPanel={setShowNewsPanel}/>
       <News showNewsPanel={showNewsPanel} setShowNewsPanel={setShowNewsPanel}/> 
       <ContentWrapper>
         {children}
