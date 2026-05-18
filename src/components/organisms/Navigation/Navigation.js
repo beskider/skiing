@@ -7,7 +7,7 @@ import useWindowSize from 'hooks/useWindowSize';
 
 export const Navigation = ({ setShowNewsPanel }) => {
 
-  const [ width, height ] = useWindowSize()
+  const [ width ] = useWindowSize()
 
   useEffect(() => {
     if (width < theme.mediaQuery.tablet ) {
