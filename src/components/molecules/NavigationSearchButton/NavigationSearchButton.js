@@ -64,7 +64,7 @@ export const NavigationSearchButton = ({ closeMenu }) => {
   return (
     <>
       <StyledNavigationSearchButton $isOpen={isOpen} ref={wrapperRef}>
-        <NavigationSearchButtonWithIcon onClick={toggleOpen}>
+        <NavigationSearchButtonWithIcon onClick={toggleOpen} $isOpen={isOpen}>
           <FaSearch/>
         </NavigationSearchButtonWithIcon>
         { 

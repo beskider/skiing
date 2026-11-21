@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.color.lightGrey};  
   ${({ theme }) => theme.mediaQuery.tablet} {
     display: grid;
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: 80px 1fr;
     grid-template-columns: ${({ $showSidePanel }) => $showSidePanel ? '7fr 3fr' : '1fr auto'};
   }
 `;

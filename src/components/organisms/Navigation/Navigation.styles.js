@@ -2,7 +2,7 @@ import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Wrapper = styled.nav`
-  background-color: ${({ theme }) => theme.color.lightBlue};
+  background-color: ${({ theme }) => theme.color.navy};
   grid-row: 1 / 2;
   grid-column: 1 / 3;
   display: flex;
@@ -27,7 +27,7 @@ export const Wrapper = styled.nav`
 export const MenuContainer = styled.div`
   display: ${({ $isHamburgerOpen }) => ($isHamburgerOpen ? 'block' : 'none')};
   flex-direction: column;
-  background-color: ${({ theme }) => theme.color.lightBlue};
+  background-color: ${({ theme }) => theme.color.navy};
   z-index: 1050;
   position: absolute;
   top: 0;
@@ -48,7 +48,7 @@ export const MenuContainer = styled.div`
 `
 
 export const StyledNavLink = styled(NavLink)`
-  color: ${({ theme }) => theme.color.white};
+  color: ${({ theme }) => theme.color.lighterBlue};
   font-size: ${({ theme }) => theme.fontSize.xl};
   text-decoration: none;
   font-weight: bold;  
@@ -56,11 +56,18 @@ export const StyledNavLink = styled(NavLink)`
   display: flex;
   flex-direction: column;
   margin: 1rem;
+  &.active {
+    color: ${({ theme }) => theme.color.white};
+  }
+  &:hover:not(.active) {    
+    color: ${({ theme }) => theme.color.white};
+    transition-duration: 0.5s;    
+  }
   ${({ theme }) => theme.mediaQuery.tablet} {
     margin: 0 20px;
     font-size: ${({ theme }) => theme.fontSize.large};
     &:hover:not(.active) {    
-      transform: scale(1.25) rotate(-10deg);
+      color: ${({ theme }) => theme.color.white};
       transition-duration: 0.5s;    
     }
     &::after {
@@ -73,8 +80,9 @@ export const StyledNavLink = styled(NavLink)`
       margin-top: 4px;
     }  
     &.active {
+      color: ${({ theme }) => theme.color.white};
       &::after {
-        opacity: 1;
+        opacity: 1;        
       }
     }
   }

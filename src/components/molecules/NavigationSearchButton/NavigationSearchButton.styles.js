@@ -22,13 +22,17 @@ export const NavigationSearchButtonWithIcon = styled.button`
   justify-content: center;
   &:hover {    
     transform: scale(1.45) rotate(-10deg);
-	  transition-duration: 0.5s;    
+	  transition-duration: 0.5s;  
+    svg {
+      fill: ${({ theme }) => theme.color.white };
+      stroke: ${({ theme }) => theme.color.white };
+    }
   }
   svg {    
     width: 75%;
     height: 75%;    
-    fill: ${({ theme }) => theme.color.white };
-    stroke: ${({ theme }) => theme.color.white };
+    fill: ${({ theme, $isOpen }) => $isOpen ? theme.color.white : theme.color.lighterBlue };
+    stroke: ${({ theme, $isOpen }) => $isOpen ? theme.color.white : theme.color.lighterBlue };
     margin: 0;
   }
 `
