@@ -2,6 +2,8 @@ import { useState, useContext } from 'react';
 import { ResortContext } from "providers/ResortsProvider";
 import { StyledNavigationSearchButton, NavigationSearchButtonWithIcon, NavigationSearchInput } from './NavigationSearchButton.styles';
 import { SearchResultsList } from '../SearchResultsList/SearchResultsList';
+import { useTranslation } from 'react-i18next';
+
 import { FaSearch } from 'react-icons/fa';
 
 import { useEffect, useRef } from 'react';
@@ -13,6 +15,8 @@ export const NavigationSearchButton = ({ closeMenu }) => {
   const [ searchResults, setSearchResults ] = useState([])
   
   const { resorts } = useContext(ResortContext);
+
+  const { t } = useTranslation();
   
   const wrapperRef = useRef(null);
   
@@ -73,7 +77,7 @@ export const NavigationSearchButton = ({ closeMenu }) => {
             type="search"
             value={seachText} 
             onChange={handleSearchChange} 
-            placeholder="Resort name or place..."
+            placeholder={t('search.placeholder')}
           />
         }
         { 

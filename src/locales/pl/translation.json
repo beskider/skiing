@@ -1,0 +1,10 @@
+{
+  "navigation": {
+    "map": "Mapa",
+    "resorts": "Ośrodki",
+    "webcams": "Kamery"
+  },
+  "search": {
+    "placeholder": "Wpisz nazwę lub adres..."
+  }
+}

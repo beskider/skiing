@@ -1,0 +1,10 @@
+{
+  "navigation": {
+    "map": "Map",
+    "resorts": "Resorts",
+    "webcams": "Webcams"
+  },
+  "search": {
+    "placeholder": "Search name or place...."
+  }
+}
