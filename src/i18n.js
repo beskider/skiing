@@ -11,12 +11,12 @@ i18n
   .init({
     resources: {
       pl: { translation: pl },
-      en: { translation: en },
+      en: { translation: en }
     },
     fallbackLng: 'pl', // język domyślny, jeśli wykryty język nie jest obsługiwany
     interpolation: {
       escapeValue: false, // React sam zabezpiecza przed XSS
-    },
+    }
   });
 
 export default i18n;

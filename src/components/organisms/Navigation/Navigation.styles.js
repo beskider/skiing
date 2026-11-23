@@ -5,24 +5,60 @@ export const Wrapper = styled.nav`
   background-color: ${({ theme }) => theme.color.navy};
   grid-row: 1 / 2;
   grid-column: 1 / 3;
+  position: relative;      
   display: flex;
-  flex-direction: row;
-  align-items: center;  
-  justify-content: end;
-  position: relative;
-  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;      
   ${({ theme }) => theme.mediaQuery.tablet} {
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 2fr 5fr 2fr;
   }
   .hamburger-react {
     z-index: 1060;
     display: unset;
-    margin-right: 2rem;
     ${({ theme }) => theme.mediaQuery.tablet} {
       display: none;
     }
-  } 
-`;
+  }
+`
+
+export const LeftGroup = styled.div`
+  height: 5rem;  
+`
+
+export const RightGroup = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 1rem; 
+`
+
+export const Logo = styled(NavLink)`
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-left: 1rem;
+  &:hover {  
+    filter: brightness(1.5);
+    transition-duration: 0.5s;  
+  }
+`
+
+export const LogoImage = styled.img`    
+  height: 100%;
+  object-fit: contain;
+  display: none;
+  ${({ theme }) => theme.mediaQuery.tablet} {
+    display: unset;
+  }
+`
+
+export const LogoTitle = styled.h1`    
+  color: ${({ theme }) => theme.color.lighterBlue};
+`
 
 export const MenuContainer = styled.div`
   display: ${({ $isHamburgerOpen }) => ($isHamburgerOpen ? 'block' : 'none')};
@@ -87,5 +123,3 @@ export const StyledNavLink = styled(NavLink)`
     }
   }
 `;
-
-export const StyledLink = styled(Link)``

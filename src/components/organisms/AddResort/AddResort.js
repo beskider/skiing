@@ -21,7 +21,7 @@ import { ResortContext } from "providers/ResortsProvider";
 import { TRAIL_RATINGS } from "types/resort";
 
 import { SmallMapModal } from '../SmallMapWindow/SmallMapModal'
-import { StyledButtons, StyledLink } from '../ResortsList/ResortsList.styles'
+import { StyledButtons } from '../ResortsList/ResortsList.styles'
 import { isObjectEmpty } from 'helpers';
 
 const initialResortFormData = {

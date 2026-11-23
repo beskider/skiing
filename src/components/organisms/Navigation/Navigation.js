@@ -1,11 +1,15 @@
-import { Wrapper, StyledNavLink, MenuContainer } from "./Navigation.styles"
+import { Wrapper, LeftGroup, RightGroup, Logo, LogoImage, LogoTitle, StyledNavLink, MenuContainer } from "./Navigation.styles"
 import { useEffect, useState } from 'react';
 import { NavigationSearchButton } from 'components/molecules/NavigationSearchButton/NavigationSearchButton';
 import { LanguageSwitcher } from "components/molecules/LanguageSwitcher/LanguageSwitch";
 import Hamburger from 'hamburger-react';
 import { theme } from 'assets/styles/theme';
-import useWindowSize from 'hooks/useWindowSize';
+import { useWindowSize } from 'hooks/useWindowSize';
 import { useTranslation } from 'react-i18next';
+
+import { NavLink } from 'react-router-dom';
+
+import logoImg from 'assets/images/logo.png';
 
 export const Navigation = ({ setShowNewsPanel }) => {
 
@@ -31,14 +35,27 @@ export const Navigation = ({ setShowNewsPanel }) => {
 
   return (
     <Wrapper >
-      <LanguageSwitcher />
+      <LeftGroup>
+          <Logo to="/map">
+            <LogoImage src={logoImg} alt="Skiing logo" />
+            <LogoTitle>Skiing</LogoTitle>
+          </Logo>
+      </LeftGroup>
       <MenuContainer $isHamburgerOpen={isHamburgerOpen}>
         <StyledNavLink onClick={toggleNavigation} to="/map">{t('navigation.map')}</StyledNavLink>
         <StyledNavLink onClick={toggleNavigation} to="/resorts">{t('navigation.resorts')}</StyledNavLink>
         <StyledNavLink onClick={toggleNavigation} to="/webcams">{t('navigation.webcams')}</StyledNavLink>
         <NavigationSearchButton closeMenu={closeMenu}/>     
       </MenuContainer>
-      <Hamburger toggled={isHamburgerOpen} toggle={setHamburgerOpen} color={theme.color.white}/>
+      <RightGroup>
+        <LanguageSwitcher />
+      </RightGroup>      
+      <Hamburger 
+        toggled={isHamburgerOpen} 
+        toggle={setHamburgerOpen} 
+        color={theme.color.white} 
+        label="Show menu"
+      />
     </Wrapper>
   )
 };
